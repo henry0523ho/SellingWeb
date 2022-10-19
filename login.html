@@ -25,24 +25,21 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-                <form role="form" method="post" action="http://localhost/workSpace/SellingWeb/php/login.php" autocomplete="off">
-                    <h1><b><font color="#000094">會員登入SIGN IN</font></b></h1>
-                    <p><input id="loginName" name="userName" type="text" placeholder="使用者姓名 Username"></p>
-                    <p><input id="loginPwd" name="userPwd" type="password" placeholder="密碼 Password"></p>
-                    <p align="right"><a href="https://www.youtube.com/?gl=TW&hl=zh-TW">忘記密碼?</a>
-                        <input id="loginSubmit" type="submit" value="SIGN IN" width="50" height="20"></p>
-                </form>
+                <h1><b><font color="#000094">會員登入SIGN IN</font></b></h1>
+                <p><input id="loginName" name="userName" type="text" placeholder="使用者姓名 Username"></p>
+                <p><input id="loginPwd" name="userPwd" type="password" placeholder="密碼 Password"></p>
+                <p align="right"><a href="https://www.youtube.com/?gl=TW&hl=zh-TW">忘記密碼?</a>
+                    <button id="loginSubmit" class="btn btn-primary">登入</button>
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-                <form role="form" method="post" action="http://localhost/WorkSpace/SellingWeb/php/register.php" autocomplete="off">
-                    <h1><b><font color="#000094">加入會員JOIN US</font></b></h1>
-                    <p><input name="userName" type="text" placeholder="使用者姓名 Username"></p>
-                    <p><input name="userEmail" type="text" placeholder="電子郵件 E-mail"></p>
-                    <p><input name="userPwd" type="password" placeholder="密碼 Password"></p>
-                    <p><input name="checkPwd" type="password" placeholder="確認密碼 Confirm password"></p>
-                    <p align="right"><input type="submit" value="JOIN" width="100" height="30"></p>
-                    <hr>
+                <h1><b><font color="#000094">加入會員JOIN US</font></b></h1>
+                <p><input id="regName" name="userName" type="text" placeholder="使用者姓名 Username"></p>
+                <p><input id="regEmail" name="userEmail" type="text" placeholder="電子郵件 E-mail"></p>
+                <p><input id="regPwd" name="userPwd" type="password" placeholder="密碼 Password"></p>
+                <p><input id="checkPwd" name="checkPwd" type="password" placeholder="確認密碼 Confirm password"></p>
+                <p align="right"><button id="regSubmit" class="btn btn-primary">註冊</button></p>
+                <hr>
             </div>
         </div>
     </div>
