@@ -1,78 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>海大拍賣系統</title>
-    <style>
-        #HEADER {
-            text-align: center;
-            padding:50px;
-            width:100%;
-            height:200px;
-        }
-        body {
-            font-family: 'Courier New', monospace;
-        }
-        input[type="text"] {
-            text-decoration: blue;
-            padding:12px;
-            width:100%;
-            border-color: #E3E3E3;
-            border-style: solid;
-            border-width: 1px;
-            border-radius: 10px;
-        }
-        input[type="text"]:focus {
-            background-color: lightblue;
-            border-color: #E3E3E3;
-            border-style: solid;
-            border-width: 1px;
-        }
-        input[type="password"] {
-            padding:12px;
-            width:100%;
-            border-color: #E3E3E3;
-            border-style: solid;
-            border-width: 1px;
-            border-radius: 10px;
-        }
-        input[type="password"]:focus {
-            background-color: lightblue;
-            border-color: #E3E3E3;
-            border-style: solid;
-            border-width: 1px;
-        }
-        input[type="submit"] {
-            align-items: right;
-            -webkit-border-radius: 15;
-            -moz-border-radius: 15;
-            border-width: 1px;
-            border-color: #E3E3E3;
-            border-style: solid;
-            border-radius: 15px;
-            font-family: Courier New;
-            color: #ffffff;
-            font-size: 20px;
-            background: #3498db;
-            padding: 10px 20px 10px 20px;
-            text-decoration: none;
-        }
 
-        input[type="submit"]:hover {
-            background: #3cb0fd;
-            text-decoration: none;
-        }
-        a {
-            color:#B0B0B0
-        }
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-    </style>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="script/login.js"></script>
 </head>
+
 <body>
     <div id="HEADER">
         <img src="./source/logo.png">
@@ -80,27 +25,25 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-                <form role="form" method="post" action="./php/login.php" autocomplete="off">
-                    <h1><b><font color="#000094">會員登入SIGN IN</font></b></h1>
-                    <p><input name="userName" type="text" placeholder="使用者姓名 Username"></p>
-                    <p><input name="userPwd" type="password" placeholder="密碼 Password"></p>
-                    <p align="right"><a href="https://www.youtube.com/?gl=TW&hl=zh-TW">忘記密碼?</a>
-                    <input type="submit" value="SIGN IN" width="50" height="20"></p>
-                </form>
+                <h1><b><font color="#000094">會員登入SIGN IN</font></b></h1>
+                <p><input id="loginName" name="userName" type="text" placeholder="使用者姓名 Username"></p>
+                <p><input id="loginPwd" name="userPwd" type="password" placeholder="密碼 Password"></p>
+                <p align="right"><a href="https://www.youtube.com/?gl=TW&hl=zh-TW">忘記密碼?</a>
+                    <button id="loginSubmit" class="btn btn-primary">登入</button>
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-                <form role="form" method="post" action="./php/register.php" autocomplete="off">
-                    <h1><b><font color="#000094">加入會員JOIN US</font></b></h1>
-                    <p><input name="userName" type="text" placeholder="使用者姓名 Username"></p>
-                    <p><input name="userEmail" type="text" placeholder="電子郵件 E-mail"></p>
-                    <p><input name="userPwd" type="password" placeholder="密碼 Password"></p>
-                    <p><input name="userPwd" type="password" placeholder="確認密碼 Confirm password"></p>
-                    <p align="right"><input type="submit" value="JOIN" width="100" height="30"></p>
-                    <hr>
+                <h1><b><font color="#000094">加入會員JOIN US</font></b></h1>
+                <p><input id="regName" name="userName" type="text" placeholder="使用者姓名 Username"></p>
+                <p><input id="regEmail" name="userEmail" type="text" placeholder="電子郵件 E-mail"></p>
+                <p><input id="regPwd" name="userPwd" type="password" placeholder="密碼 Password"></p>
+                <p><input id="checkPwd" name="checkPwd" type="password" placeholder="確認密碼 Confirm password"></p>
+                <p align="right"><button id="regSubmit" class="btn btn-primary">註冊</button></p>
+                <hr>
             </div>
-          </div>
+        </div>
     </div>
-    
+
 </body>
+
 </html>
