@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海大拍賣系統</title>
+    <style>
+        #HEADER {
+            text-align: center;
+            padding:50px;
+            width:100%;
+            height:200px;
+        }
+        body {
+            font-family: 'Courier New', monospace;
+        }
+        input[type="text"] {
+            text-decoration: blue;
+            padding:12px;
+            width:100%;
+            border-color: #E3E3E3;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 10px;
+        }
+        input[type="text"]:focus {
+            background-color: lightblue;
+            border-color: #E3E3E3;
+            border-style: solid;
+            border-width: 1px;
+        }
+        input[type="password"] {
+            padding:12px;
+            width:100%;
+            border-color: #E3E3E3;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 10px;
+        }
+        input[type="password"]:focus {
+            background-color: lightblue;
+            border-color: #E3E3E3;
+            border-style: solid;
+            border-width: 1px;
+        }
+        input[type="submit"] {
+            align-items: right;
+            -webkit-border-radius: 15;
+            -moz-border-radius: 15;
+            border-width: 1px;
+            border-color: #E3E3E3;
+            border-style: solid;
+            border-radius: 15px;
+            font-family: Courier New;
+            color: #ffffff;
+            font-size: 20px;
+            background: #3498db;
+            padding: 10px 20px 10px 20px;
+            text-decoration: none;
+        }
+
+        input[type="submit"]:hover {
+            background: #3cb0fd;
+            text-decoration: none;
+        }
+        a {
+            color:#B0B0B0
+        }
+
+    </style>
+</head>
+<body>
+    <div id="HEADER">
+        <img src="./source/logo.png">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
+                <form role="form" method="post" action="./php/login.php" autocomplete="off">
+                    <h1><b><font color="#000094">會員登入SIGN IN</font></b></h1>
+                    <p><input name="userName" type="text" placeholder="使用者姓名 Username"></p>
+                    <p><input name="userPwd" type="password" placeholder="密碼 Password"></p>
+                    <p align="right"><a href="https://www.youtube.com/?gl=TW&hl=zh-TW">忘記密碼?</a>
+                    <input type="submit" value="SIGN IN" width="50" height="20"></p>
+                </form>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
+                <form role="form" method="post" action="./php/register.php" autocomplete="off">
+                    <h1><b><font color="#000094">加入會員JOIN US</font></b></h1>
+                    <p><input name="userName" type="text" placeholder="使用者姓名 Username"></p>
+                    <p><input name="userEmail" type="text" placeholder="電子郵件 E-mail"></p>
+                    <p><input name="userPwd" type="password" placeholder="密碼 Password"></p>
+                    <p><input name="userPwd" type="password" placeholder="確認密碼 Confirm password"></p>
+                    <p align="right"><input type="submit" value="JOIN" width="100" height="30"></p>
+                    <hr>
+            </div>
+          </div>
+    </div>
+    
+</body>
+</html>
