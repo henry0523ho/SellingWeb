@@ -58,6 +58,16 @@ method="POST"
 <hr>
 
 # delProduct
+```json
+method="POST"
+send={
+    "productId":1 //要刪除商品的ID
+}
+response={
+    "state":200,
+    "message":"就一些訊息"
+}
+```
 
 # setProduct.php
 ```json
@@ -71,7 +81,7 @@ send={
     "productLabel":"", //商品分類
     "productNewRate":4, //商品新舊程度(0~5)
     "productInfo":"一杓三花淡奶，全是科技與很活", //商品介紹
-    "productCost":300, //價錢
+    "productCost":300 //價錢
 }
 response={
     "state":200, // 400=> 沒登入,200 => OK,500 => 後端爛了or有資料沒送到後端

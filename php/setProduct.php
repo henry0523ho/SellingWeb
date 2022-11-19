@@ -26,29 +26,32 @@ try{
         }else{
             $sql="SELECT seller_id FROM product WHERE product_id='".$productId."';";
             $result=$conn->query($sql);
-            $row = $result->fetch_assoc();
-            
-            if($row["seller_id"]==$_SESSION["userId"]){
-                $sql=   "UPDATE product
-                        SET product_name='".$productName."',
-                        product_num='".$productNum. "',
+            if($row = $result->fetch_assoc()){
+                if ($row["seller_id"] == $_SESSION["userId"]) {
+                    $sql =   "UPDATE product
+                        SET product_name='" . $productName . "',
+                        product_num='" . $productNum . "',
                         product_img='" . $productImg . "',
                         product_text='" . $productText . "',
                         product_Label='" . $productLabel . "',
                         product_new_rate='" . $productNewRate . "',
                         product_info='" . $productInfo . "',
                         product_cost='" . $productCost . "' 
-                        WHERE product_id='".$productId."';";
-                $result= $conn->query($sql);
-                if ($result === TRUE) {
-                    $outputData["state"] = 200;
-                    $outputData["message"] = "update success";
+                        WHERE product_id='" . $productId . "';";
+                    $result = $conn->query($sql);
+                    if ($result === TRUE) {
+                        $outputData["state"] = 200;
+                        $outputData["message"] = "update success";
+                    } else {
+                        throw new Exception("MySQL is broken.");
+                    }
                 } else {
-                    throw new Exception("MySQL is broken.");
+                    $outputData["state"] = 401;
+                    $outputData["message"] = "login first to setProduct.";
                 }
             }else{
-                $outputData["state"] = 401;
-                $outputData["message"] = "login first to setProduct.";
+                $outputData["state"] = 410;
+                $outputData["message"] = "no product found";
             }
         }
     } else {
