@@ -15,6 +15,7 @@ function login(userName, userPwd) {
         success: function(result) {
             console.log(result);
             if (result == "success") {
+                //document.getElementById("in_out").innerHTML = "logout"
                 alert("登入成功");
                 document.location.href = "http://localhost/workSpace/SellingWeb/index.html";
             } else {
