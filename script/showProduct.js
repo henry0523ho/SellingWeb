@@ -3,16 +3,16 @@ $(document).ready(function() {
 });
 
 
-function showAllProduct(){
+function showAllProduct() {
     $.ajax({
         url: 'http://localhost/workSpace/SellingWeb/php/showProduct.php',
         type: "POST",
-    
+
         success: function(result) {
             let string = "";
             let objs = JSON.parse(result);
-            for(let i=0; i<objs.length; i++){
-                if(i%3 == 0){
+            for (let i = 0; i < objs.length; i++) {
+                if (i % 3 == 0) {
                     let divRow = document.createElement("div");
                     divRow.setAttribute("class", "row");
                     document.getElementById("display").appendChild(divRow);
@@ -27,7 +27,7 @@ function showAllProduct(){
 
                 let div03 = document.createElement("div");
                 div03.setAttribute("class", "product-grid");
-                div03.style.backgroundImage = "url(\""+  objContext.url + "\")";
+                div03.style.backgroundImage = "url(\"" + objContext.url + "\")";
 
                 let div04 = document.createElement("div");
                 div04.setAttribute("class", "inner");
@@ -36,7 +36,7 @@ function showAllProduct(){
                 div05.setAttribute("class", "desc");
 
                 let p01 = document.createElement("p");
-                
+
                 let a01 = document.createElement("a");
                 a01.href = "single.html";
                 a01.setAttribute("class", "icon");
@@ -55,7 +55,7 @@ function showAllProduct(){
                 a02.appendChild(i02);
 
                 let h301 = document.createElement("h3");
-        
+
                 let a03 = document.createElement("a");
                 a03.href = "single.html";
                 a03.appendChild(document.createTextNode(objContext.name));
@@ -75,7 +75,7 @@ function showAllProduct(){
                 div02.appendChild(div03);
                 div02.appendChild(div05);
                 div01.appendChild(div02);
-                
+
                 document.getElementById("showProduct").appendChild(div01);
 
                 // document.getElementById("showProduct").append(newDiv);

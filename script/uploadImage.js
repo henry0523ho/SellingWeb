@@ -22,7 +22,8 @@ function imgurAPI(fData) {
             dataType: "json",
             contentType: "application/json;charset=utf-8",
             headers: {
-                Authorization: "Client-ID " + "e136cde6840d358" //暫用henry0523ho的Client-ID
+                //Authorization: "Client-ID " + "e136cde6840d358" //暫用henry0523ho的Client-ID
+                Authorization: "Client-ID " + "	e49dbac35d46ef7" //暫用chen的Client-ID
             },
             success: function(returnData) {
                 resolve(returnData["data"]["link"]);
