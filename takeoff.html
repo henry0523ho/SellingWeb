@@ -56,8 +56,10 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
-    <!-- Animate.css -->
+
 	<link rel="stylesheet" href="css/upload.css">
+    <link rel="stylesheet" href="css/takeoff.css">
+
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -132,87 +134,41 @@
              <!-- Page Content -->
              <div id="page-content-wrapper">
 				<div class="center">
-                    <table id ="upload" class="center">
+                    <h1>． 我的商品</h1>
+                    <table id ="takeoff" class="center">
                         <tr>
-                            <th> ． 上架商品</th>
-							<th></th>
+                            <th>上架日期</th>
+							<th>商品名稱</th>
+                            <th>商品狀態</br>(上架/下架)</th>
+                            <th>商品價錢</th>
+                            <th style="width: 10%; text-align: center;">是否下架</th>
                         </tr>
                         <tr>
-                            <td>商品名稱：</td>
-                            <td><input type="text" id="productName" name="productName"></td>
+                            <td>Ex. 11-24-2022</td>
+                            <td>Ex. 商品1</td>
+                            <td>Ex. 上架中</td>
+                            <td>Ex. $150</td>
+                            <td style="width: 10%; text-align: center;"><input type="checkbox" value="productTakeoff" /></td>
                         </tr>
                         <tr>
-                            <td>商品簡介：</td>
-                            <td><input type="text" id="productIntro" name="productIntro"></td>
+                            <td>Ex. 11-24-2022</td>
+                            <td>Ex. 商品2</td>
+                            <td>Ex. 上架中</td>
+                            <td>Ex. $250</td>
+                            <td style="width: 10%; text-align: center;"><input type="checkbox" value="productTakeoff" /></td>
                         </tr>
                         <tr>
-                            <td>商品分類：</td>
-                            <td><select id="productCate" name="productCate">
-                                <option value="Book">Book</option>
-                                <option value="Clothes">Clothes</option>
-                                <option value="3C">3C</option>
-                            </select><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>新舊程度：</td>
-                            <td><div style="text-align: center;">
-                                    <div class="container" style="display: flex;">
-                                        <div class="feedback">
-                                        <div class="rating">
-                                            <input type="radio" name="rating" id="rating-5">
-                                            <label for="rating-5"></label>
-                                            <input type="radio" name="rating" id="rating-4">
-                                            <label for="rating-4"></label>
-                                            <input type="radio" name="rating" id="rating-3">
-                                            <label for="rating-3"></label>
-                                            <input type="radio" name="rating" id="rating-2">
-                                            <label for="rating-2"></label>
-                                            <input type="radio" name="rating" id="rating-1">
-                                            <label for="rating-1"></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                </td>
-                        </tr>
-                        <tr>
-                            <td>數量：</td>
-                            <td><input type="text" id="productNumber" name="productNumber" style="width:10%;"></td>
-                        </tr>
-						<tr>
-                            <td>商品照片：</td>
-                            <td><input type="file" id="productPic" name="productPic" /></td>
-                        </tr>
-                        <tr>
-                            <td>詳細資訊及描述：</td>
-                            
-                            <td>
-                                <textarea id="productDescription" name="productDescription" rows="4" cols="50" placeholder="詳細資訊及描述：" style="resize: none; border-radius: 10px; width: 100%; height: 100%;"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td>商品價錢：</td>
-                            <td><input type="text" id="productPrice" name="productPrice" placeholder="定價" style="width:20%; text-align: center;"> or 
-                                <input type="text" id="productPrice" name="productPrice" placeholder="競標" style="width:10%; text-align: center;">
-                                <input type="text" id="productPrice" name="productPrice" placeholder="一刀" style="width:10%; text-align: center;"></td>
-                        </tr>
-                        <tr>
-                            <td>付款方式：</td>
-                            <td><input type="checkbox" class="payMethod" id="payPickUp" value="payPickUp"> 取貨付款 <input type="checkbox" class="payMethod" id="payRemit" value="payPickUp"> 匯款 </td>
-                        </tr>
-                        <tr>
-                            <td>退貨方式：</td>
-                            <td><input type="checkbox" class="returnMethod" id="return711" value="return711"> 7-Eleven <input type="checkbox" class="returnMethod" id="returnFamily" value="returnFamily"> 全家 <input type="checkbox" class="returnMethod" id="returnFace" value="returnFace"> 面交 </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><div style="text-align: right;">
-                                <button class="button" value="">取消編輯</button>
-                                <button class="button" value="">確認上架/更改</button></div></td>
+                            <td>Ex. 11-24-2022</td>
+                            <td>Ex. 商品3</td>
+                            <td>Ex. 上架中</td>
+                            <td>Ex. $300</td>
+                            <td style="width: 10%; text-align: center;"><input type="checkbox" value="productTakeoff" /></td>
                         </tr>
                     </table>
                     
-                    
+                    <div style="padding-top: 50px; padding-left: 10px; margin: auto; width: 10%;"><button type="button" value="confirmTakeOff" style="font-size: 20px;">更新資訊</button></div>
                 </div>
+                
                 <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
                     <span class="hamb-top"></span>
                     <span class="hamb-middle"></span>
