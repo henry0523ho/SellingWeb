@@ -12,6 +12,11 @@ function showAllProduct(){
             let string = "";
             let objs = JSON.parse(result);
             for(let i=0; i<objs.length; i++){
+                if(i%3 == 0){
+                    let divRow = document.createElement("div");
+                    divRow.setAttribute("class", "row");
+                    document.getElementById("display").appendChild(divRow);
+                }
                 let objContext = JSON.parse(objs[i]);
 
                 let div01 = document.createElement("div");
@@ -22,7 +27,7 @@ function showAllProduct(){
 
                 let div03 = document.createElement("div");
                 div03.setAttribute("class", "product-grid");
-                div03.style.backgroundImage = "url(\"images/product-1.jpg\")";
+                div03.style.backgroundImage = "url(\""+  objContext.url + "\")";
 
                 let div04 = document.createElement("div");
                 div04.setAttribute("class", "inner");
@@ -53,13 +58,13 @@ function showAllProduct(){
         
                 let a03 = document.createElement("a");
                 a03.href = "single.html";
-                a03.appendChild(document.createTextNode("資工大二用書-自算機組織學"));
+                a03.appendChild(document.createTextNode(objContext.name));
                 h301.appendChild(a03);
 
 
                 let s01 = document.createElement("span");
                 s01.setAttribute("class", "Price");
-                s01.appendChild(document.createTextNode("$150"));
+                s01.appendChild(document.createTextNode("$" + objContext.price));
 
                 div05.appendChild(h301);
                 div05.appendChild(s01);
@@ -67,8 +72,8 @@ function showAllProduct(){
                 p01.appendChild(a02);
                 div04.appendChild(p01);
                 div03.appendChild(div04);
-                div03.appendChild(div05);
                 div02.appendChild(div03);
+                div02.appendChild(div05);
                 div01.appendChild(div02);
                 
                 document.getElementById("showProduct").appendChild(div01);
