@@ -316,7 +316,8 @@ input[type=text] {
     padding-bottom: 12px;
     border: 0px;
     text-align: left;
-    font-size:40px;
+    font-size: 35px;
+    font-weight: bold;
     color: #010665;
   }
 
