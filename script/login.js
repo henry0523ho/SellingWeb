@@ -17,7 +17,7 @@ function login(userName, userPwd) {
             if (result == "success") {
                 //document.getElementById("in_out").innerHTML = "logout"
                 alert("登入成功");
-                //document.location.href = "http://localhost/workSpace/SellingWeb/index.html";
+                document.location.href = "http://localhost/workSpace/SellingWeb/index.html";
             } else {
                 alert("登入失敗，請檢查帳號密碼");
             }
