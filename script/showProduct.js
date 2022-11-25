@@ -38,7 +38,8 @@ function showAllProduct() {
                 let p01 = document.createElement("p");
 
                 let a01 = document.createElement("a");
-                a01.href = "single.html";
+                a01.href = "single.html?" + objContext.id;
+                //a01.addEventListener("click", function(){displayDetail(objContext.id);})
                 a01.setAttribute("class", "icon");
 
                 let i01 = document.createElement("i");
@@ -47,8 +48,9 @@ function showAllProduct() {
                 a01.appendChild(i01);
 
                 let a02 = document.createElement("a");
-                a02.href = "single.html";
+                a02.href = "single.html?" + objContext.id;
                 a02.setAttribute("class", "icon");
+                //a02.addEventListener("click", function(){displayDetail(objContext.id);})
                 let i02 = document.createElement("i");
                 i02.setAttribute("class", "icon-eye");
 
@@ -95,3 +97,4 @@ function showAllProduct() {
         },
     });
 }
+

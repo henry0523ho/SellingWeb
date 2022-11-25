@@ -9,6 +9,7 @@ $outputData = array();
 if(mysqli_num_rows($query_run) > 0){
     foreach($query_run as $row){
         $obj = [
+            'id' => $row['product_id'],
             'url' => $row['product_img'],
             'name' => $row['product_name'],
             'price' => $row['product_cost'],
