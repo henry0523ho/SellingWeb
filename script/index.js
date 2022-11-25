@@ -8,31 +8,38 @@ $(document).ready(function() {
             if (data != "No Login") {
                 let yes = confirm('以登入，是否要登出');
                 if (yes) {
-                    console.log("登出!!")
-                    alert("以登出，請重新登入")
+                    console.log("登出!!");
+                    alert("以登出，請重新登入");
                     logout();
                     document.location.href = "http://localhost/workSpace/SellingWeb/login.html";
                 } else {
-                    console.log("不登出!!")
+                    console.log("不登出!!");
                     document.location.href = "http://localhost/workSpace/SellingWeb/index.html";
                 }
             }
         });
     });
+    $("#check_in_out_1").click(check);
+    $("#check_in_out_2").click(check);
+    $("#check_in_out_3").click(check);
+    $("#check_in_out_4").click(check);
+    $("#check_in_out_5").click(check);
 });
-// $(window).unload(function(){
-//     console.log("關閉");
-//     logout();
-    
-//     alert("頁面要關閉了");
-// });
-// window.onunload = function() {
-//     window.event.returnValue  = "Goodbye Jason !";
-//     if (window.event.reason == false) {
-//        window.event.cancelBubble = true;
-//     }
-// }
 
+function check(){
+    $.post("http://localhost/workSpace/SellingWeb/php/getSession.php", null, function(data, status) {
+        if (data == "No Login") {
+            let yes = confirm('請先登入才可下一步');
+            if (yes) {
+                console.log("登入!!");
+                document.location.href = "http://localhost/workSpace/SellingWeb/login.html";
+            } else {
+                console.log("不登入!!");
+                document.location.href = "http://localhost/workSpace/SellingWeb/index.html";
+            }
+        }
+    });
+}
 function checkLogin(callback) {
     $.post("http://localhost/workSpace/SellingWeb/php/getSession.php", null, function(data, status) {
         console.log(data + " " + status);
