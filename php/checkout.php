@@ -4,7 +4,7 @@ use function PHPSTORM_META\type;
 
 header("Access-Control-Allow-Origin: *");
 require_once "conn.php";
-$datas = $_POST; //預設 checkbox 傳進來，key = select = checkbox 的 name = id
+$datas = $_POST; 
 $outputData = array();
 foreach($datas as $key => $row){
     $sql = "SELECT * FROM `product` WHERE `product_id` = '{$row}'";
