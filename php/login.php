@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 $data=$_POST;
 require_once "conn.php";
 $userName = $data["userName"];

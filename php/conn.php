@@ -1,7 +1,7 @@
 <?php
 $dbServerName = "localhost";
 $dbUserName = "root";
-$dbPwd = "Cherry900327";
+$dbPwd = "as0955104359";
 $dbName = "selling_web";
 // Create connection
 $conn = new mysqli($dbServerName, $dbUserName, $dbPwd,$dbName);
