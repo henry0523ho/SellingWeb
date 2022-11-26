@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 function showAllProduct() {
     $.ajax({
-        url: 'http://localhost/workSpace/SellingWeb/php/showProduct.php',
+        url: 'php/showProduct.php',
         type: "POST",
 
         success: function(result) {
@@ -97,4 +97,3 @@ function showAllProduct() {
         },
     });
 }
-
