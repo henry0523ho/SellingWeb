@@ -6,12 +6,17 @@ method="POST"
 "return" : [ ('success'|'failed'|'nameTaken') ]
 
 # login.php
+```json
 method="POST"
-
-"key" : [ 'userName', 'userPwd' ]
-
-"return" : [ ('success'|'failed') ]
-
+send={
+    "userName":"henry",
+    "userPwd":"henryPwd"
+}
+response={
+    "state":200,
+    "message":"OK"
+}
+```
 # logout.php
 
 method="POST"

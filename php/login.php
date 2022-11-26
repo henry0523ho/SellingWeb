@@ -1,26 +1,28 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-$data=$_POST;
 require_once "conn.php";
-$userName = $data["userName"];
-$userPwd = $data["userPwd"];
-
-$sql="SELECT * FROM user WHERE user_name='".$userName."';";
-$result=$conn->query($sql);
-if($result->num_rows>0){
+$data=$_POST;
+$outputData= array();
+try{
+    $userName = $data["userName"];
+    $userPwd = $data["userPwd"];
+    $sql="SELECT * FROM user WHERE user_name='".$userName."';";
+    $result=$conn->query($sql);
+    
+    $outputData['state'] = 406;
+    $outputData['message'] = "login failed";
     while($row= $result->fetch_assoc()){
         if(password_verify($userPwd,$row['user_pwd_hash'])){
             session_start();
             $_SESSION["loggedin"]=true;
             $_SESSION["userName"]=$row['user_name'];
             $_SESSION["userId"]=$row['user_id'];
-            echo "success";
-        }else{
-            echo "failed";
+            $outputData['state']=200;
+            $outputData['message']="OK";
         }
     }
-}else{
-    echo "failed";
+}catch(Exception $e){
+    $outputData['state'] = 500;
+    $outputData['message'] = $e->getMessage();
 }
-
-?>
+$outputJson = json_encode($outputData);
+echo $outputJson;

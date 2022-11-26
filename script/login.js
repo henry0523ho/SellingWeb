@@ -13,9 +13,8 @@ function login(userName, userPwd) {
         type: "POST",
         data: { "userName": userName, "userPwd": userPwd },
         success: function(result) {
-            console.log(result);
-            if (result == "success") {
-                //document.getElementById("in_out").innerHTML = "logout"
+            let res = JSON.parse(result);
+            if (res.state == 200) {
                 alert("登入成功");
                 document.location.href = "index.html";
             } else {
@@ -23,7 +22,8 @@ function login(userName, userPwd) {
             }
         },
         error: function(result) {
-            console.log(result);
+            let res = JSON.parse(result);
+            console.log(res.state + ' ' + res.message);
             alert("登入失敗，請檢查帳號密碼");
         }
     });
