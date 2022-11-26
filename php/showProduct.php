@@ -1,23 +1,24 @@
 <?php 
-header("Access-Control-Allow-Origin: *");
 require_once 'conn.php'; 
-
-$query = "SELECT * FROM product";
-$query_run = mysqli_query($conn,$query); 
-
 $outputData = array();
-
-if(mysqli_num_rows($query_run) > 0){
-    foreach($query_run as $row){
+try{
+    $sql = "SELECT * FROM product ORDER BY product_postdate DESC;";
+    $result = $conn->query($sql);
+    $outputData['data']=array();
+    while($row = $result->fetch_assoc()){
         $obj = [
             'id' => $row['product_id'],
             'url' => $row['product_img'],
             'name' => $row['product_name'],
             'price' => $row['product_cost'],
         ];
-        //echo Json_encode($obj);
-        array_push($outputData, Json_encode($obj));        
+        array_push($outputData['data'], $obj);
     }
+    $outputData['state']=200;
+    $outputData['message']="OK";
+}catch(Exception $e){
+    $outputData['state']=500;
+    $outputData['message']=$e->getMessage();
 }
 
 $outputJson = json_encode($outputData);

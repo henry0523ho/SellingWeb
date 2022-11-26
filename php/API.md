@@ -47,13 +47,20 @@ method="POST"
 一個商品，結帳
 
 # showProduct.php
-
-method="POST"
-
-"key" : [ "num" ]
-
-"return" : [ {} ]
-
+```json
+method="GET"
+response={
+    "state":200,
+    "data":[
+        {
+            "id":1, //商品ID
+            "url":"https://i.imgur.com/OS3lebp.png",    //商品圖片網址
+            "name":"微積分",    //商品名稱
+            "price":"300"   //商品價錢
+        },{"id":2,"url":"https://i.imgur.com/OS3lebp.png","name":"微積分2","price":"100"}    //多個商品的資料
+    ]
+}
+```
 <hr>
 <hr>
 

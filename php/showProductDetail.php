@@ -2,6 +2,13 @@
 header("Access-Control-Allow-Origin: *");
 require_once 'conn.php'; 
 $data=$_POST;
+
+// try{
+    
+// }catch(Exception $e){
+    
+// }
+
 $product_id=$_POST["id"];
 
 $sql="SELECT * FROM product WHERE product_id='".$product_id."';";

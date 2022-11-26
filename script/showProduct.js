@@ -7,17 +7,20 @@ function showAllProduct() {
     $.ajax({
         url: 'php/showProduct.php',
         type: "POST",
-
         success: function(result) {
-            let string = "";
             let objs = JSON.parse(result);
-            for (let i = 0; i < objs.length; i++) {
+            if (objs.state != 200) {
+                console.log("fetch showProduct.php failed");
+                console.log(objs.state + ' ' + objs.message);
+                return;
+            }
+            for (let i = 0; i < objs.data.length; i++) {
                 if (i % 3 == 0) {
                     let divRow = document.createElement("div");
                     divRow.setAttribute("class", "row");
                     document.getElementById("display").appendChild(divRow);
                 }
-                let objContext = JSON.parse(objs[i]);
+                let objContext = objs.data[i];
 
                 let div01 = document.createElement("div");
                 div01.setAttribute('class', "col-md-4 text-center animate-box fadeInUp animated-fast");
