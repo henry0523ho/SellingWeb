@@ -24,13 +24,11 @@ response={
 }
 ```
 # logout.php
-
+```json
 method="POST"
-
-"key" : []
-
-"return" : []
-
+send={}
+response={}
+```
 # getSession.php
 
 method="POST"
