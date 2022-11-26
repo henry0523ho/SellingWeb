@@ -30,13 +30,15 @@ send={}
 response={}
 ```
 # getSession.php
-
-method="POST"
-
-"key" : [];
-
-"return" : [ (username|'No Login') ];
-
+```json
+method="GET"
+response={
+    "state":200,
+    "userName":"henry",
+    "userId":1,
+    "message":"OK"
+}
+```
 <hr>
 <hr>
 
