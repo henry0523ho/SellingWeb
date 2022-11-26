@@ -3,11 +3,11 @@ $(document).ready(function() { //上架商品
     conBtn.addEventListener("click", upload, false);
 });
 
+
 async function upload() {
     let productId = "";
     let productName = $("#productName").val();
     let productNum = $("#productNumber").val();
-    // let productImg = "暫無圖片";
     let productImg = await uploadImage($("#productPic"));
     let productText = $("#productIntro").val();
     let productLabel = $("#productCate").val();
@@ -34,4 +34,5 @@ async function upload() {
             let obj = JSON.parse(data);
             console.log(obj.message);
         })
+        location.reload();
 }
