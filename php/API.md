@@ -106,7 +106,26 @@ response={
     "message":"就一些訊息"
 }
 ```
-
-
+# showProductDetail.php
+```json
+method="POST"
+send={
+    "id":4
+}
+response={
+    "state":200,
+    "message":"OK",
+    "data":{
+        "id":4, //商品ID
+        "url":"https://i.imgur.com/OS3lebp.png", //照片網址
+        "name":"微積分2", //(商品名稱)
+        "price":300, //價錢
+        "new":4, //商品新舊程度(0~5)
+        "num":10, //(商品數量)
+        "text":"牛逼了我的天", //賣家的話
+        "info":"一杓三花淡奶，全是科技與很活", //商品介紹
+    }
+}
+```
 
 
