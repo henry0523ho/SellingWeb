@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 function login(userName, userPwd) {
     $.ajax({
-        url: 'http://localhost/workSpace/SellingWeb/php/login.php',
+        url: 'php/login.php',
         type: "POST",
         data: { "userName": userName, "userPwd": userPwd },
         success: function(result) {
@@ -17,7 +17,7 @@ function login(userName, userPwd) {
             if (result == "success") {
                 //document.getElementById("in_out").innerHTML = "logout"
                 alert("登入成功");
-                document.location.href = "http://localhost/workSpace/SellingWeb/index.html";
+                document.location.href = "index.html";
             } else {
                 alert("登入失敗，請檢查帳號密碼");
             }
@@ -32,13 +32,13 @@ function login(userName, userPwd) {
 function register(userName, userEmail, userPwd, checkPassword) {
     if (userPwd == checkPassword) {
         $.ajax({
-            url: 'http://localhost/workSpace/SellingWeb/php/register.php',
+            url: 'php/register.php',
             type: 'POST',
             data: { "userName": userName, "userEmail": userEmail, "userPwd": userPwd },
             success: function(result) {
                 if (result == "success") {
                     alert("註冊成功");
-                    document.location.href = "http://localhost/workSpace/SellingWeb/login.html"
+                    document.location.href = "login.html"
                 } else if (result == "nameTaken") {
                     alert("使用者名稱已存在")
                 } else {

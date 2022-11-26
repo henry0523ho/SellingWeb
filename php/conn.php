@@ -1,7 +1,9 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 $dbServerName = "localhost";
 $dbUserName = "root";
-$dbPwd = "as0955104359";
+
+$dbPwd = "";
 $dbName = "selling_web";
 // Create connection
 $conn = new mysqli($dbServerName, $dbUserName, $dbPwd,$dbName);

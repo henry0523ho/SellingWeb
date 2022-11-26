@@ -3,11 +3,12 @@ $(document).ready(function() { //上架商品
     conBtn.addEventListener("click", upload, false);
 });
 
-function upload(){
+
+async function upload() {
     let productId = "";
     let productName = $("#productName").val();
     let productNum = $("#productNumber").val();
-    let productImg = "暫無圖片";
+    let productImg = await uploadImage($("#productPic"));
     let productText = $("#productIntro").val();
     let productLabel = $("#productCate").val();
     let productNewRate = $("input[name=rating]:checked").val();
@@ -15,14 +16,23 @@ function upload(){
     let productCost = $("#productPrice").val();
 
     $.ajax({
-        url: 'http://localhost/workSpace/SellingWeb/php/setProduct.php',
-        type: "POST",
-        data: { "productId": productId, "productName": productName, "productNum" : productNum,
-                "productImg" : productImg, "productText" : productText, "productLabel" : productLabel,
-                "productNewRate" : productNewRate, "productInfo" : productInfo, "productCost" : productCost},
-    })
-    .done(function(data){
-       
-    })
-    location.reload();
+            url: 'php/setProduct.php',
+            type: "POST",
+            data: {
+                "productId": productId,
+                "productName": productName,
+                "productNum": productNum,
+                "productImg": productImg,
+                "productText": productText,
+                "productLabel": productLabel,
+                "productNewRate": productNewRate,
+                "productInfo": productInfo,
+                "productCost": productCost
+            },
+        })
+        .done(function(data) {
+            let obj = JSON.parse(data);
+            console.log(obj.message);
+        })
+        location.reload();
 }

@@ -1,14 +1,14 @@
 $(document).ready(function() {
-    console.log('location.search: '+location.search);
+    console.log('location.search: ' + location.search);
     displayDetail(location.search);
 });
 
-function displayDetail(search){
-    let id = search.split("?")[1];    
+function displayDetail(search) {
+    let id = search.split("?")[1];
     $.ajax({
-        url: 'http://localhost/workSpace/SellingWeb/php/showProductDetail.php',
+        url: 'php/showProductDetail.php',
         type: "POST",
-        data: {"id": id},
+        data: { "id": id },
 
         success: function(result) {
             //console.log(result);
