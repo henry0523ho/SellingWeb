@@ -1,10 +1,16 @@
 # register.php
+```json
 method="POST"
-
-"key" : [ 'userName', 'userPwd', 'userEmail' ]
-
-"return" : [ ('success'|'failed'|'nameTaken') ]
-
+send={
+    "userName":"henry",
+    "userPwd":"henryPwd",
+    "userEmail":"henry@gmail.com"
+}
+response={
+    "state":200,
+    "message":"OK"
+}
+```
 # login.php
 ```json
 method="POST"

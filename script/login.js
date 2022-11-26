@@ -36,17 +36,19 @@ function register(userName, userEmail, userPwd, checkPassword) {
             type: 'POST',
             data: { "userName": userName, "userEmail": userEmail, "userPwd": userPwd },
             success: function(result) {
-                if (result == "success") {
+                let res = JSON.parse(result);
+                if (res.state == 200) {
                     alert("註冊成功");
                     document.location.href = "login.html"
-                } else if (result == "nameTaken") {
+                } else if (res.state == 409) {
                     alert("使用者名稱已存在")
                 } else {
                     alert("註冊失敗");
                 }
             },
             error: function(result) {
-                console.log(result);
+                let res = JSON.parse(result);
+                console.log(res.state + ' ' + res.message);
                 alert("註冊失敗");
             }
 
