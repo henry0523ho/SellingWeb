@@ -10,11 +10,11 @@ $result=$conn->query($sql);
 if($result->num_rows>0){
     while($row= $result->fetch_assoc()){
         if(password_verify($userPwd,$row['user_pwd_hash'])){
-            echo "success";
             session_start();
             $_SESSION["loggedin"]=true;
             $_SESSION["userName"]=$row['user_name'];
             $_SESSION["userId"]=$row['user_id'];
+            echo "success";
         }else{
             echo "failed";
         }
