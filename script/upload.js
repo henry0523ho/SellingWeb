@@ -2,6 +2,7 @@ $(document).ready(function() { //上架商品
     let conBtn = document.getElementById("conBtn");
     conBtn.addEventListener("click", upload, false);
 });
+
 function upload(){
     let productId = "";
     let productName = $("#productName").val();
@@ -21,7 +22,7 @@ function upload(){
                 "productNewRate" : productNewRate, "productInfo" : productInfo, "productCost" : productCost},
     })
     .done(function(data){
-        let obj = JSON.parse(data);
-        console.log(obj.message);
+       
     })
+    location.reload();
 }
