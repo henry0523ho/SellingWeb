@@ -56,8 +56,7 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
-
-	<link rel="stylesheet" href="css/upload.css">
+	 
     <link rel="stylesheet" href="css/takeorder.css">
 
 	<!-- FOR IE9 below -->
@@ -116,36 +115,23 @@
 			
 		</div>
 	</nav>
-    <div id="wrapper">
-        <div class="overlay"></div>
-        <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
-            <ul class="nav sidebar-nav">
-              <div class="sidebar-header">
-              <div class="sidebar-brand">
-                <a href="#">會員中心</a></div></div>
-              <li><a href="shipment.html">訂單查詢</a></li>
-              <li><a href="upload.html">上架商品</a></li>
-              <li><a href="takeoff.html">我的商品</a></li>
-              <li><a href="#">個人資料</a></li>
-             </ul>
-         </nav>
-               <!-- /#sidebar-wrapper -->
-             <!-- Page Content -->
-             <div id="page-content-wrapper">
+            <!-- /#sidebar-wrapper -->
+            <!-- Page Content -->
+    <div id="page-content-wrapper">
 				<div class="center">
-                    <h1>． 訂單流程</h1>
-                    <div id="tab">
+                    <h1> ． 訂單流程</h1>
+                    <div id="tab" class="center">
                         <ul>
                             <li><a href="#tab-1">確認購買明細</a></li>
                             <li><a href="#tab-2">配送和付款方式</a></li>
                             <li><a href="#tab-3">填寫收件資料</a></li>
                             <li><a href="#tab-4">完成訂單</a></li>
-                        </ul>
-                    
+                        </ul>                    
                         <!-- 頁籤的內容區塊 -->
                         <div class="content-1">
                             <table><table id ="CartProduct" class="center">
 								<caption><h4>確認購買明細</h4></caption>
+								<hr>
                                 <tr>
                                     <th>商品名稱</th>
                                     <th>Size/資訊</th>
@@ -175,15 +161,14 @@
 							<div>
 								<h4>配送和付款方式</h4>
 								<hr>
-								<div id="ChooseMethod">
-									<ul>
+								<div id="ChooseMethod" class="formlist">
+									<ul>										
 										<li><input type="radio" name="method">面交</li>
 										<li><input type="radio" name="method">7-11</li>
 										<li><input type="radio" name="method">全家</li>
 									</ul>								
 								</div>
-							</div>
-							
+							</div>							
 							<button id="back">上一步</button>	
 							<button id="next">下一步</button>	
                         </div>
@@ -193,7 +178,7 @@
 							<div id="ChooseMethod" class="formlist">
 								<ul>
 									<li>收件姓名:<input type="text"></li>
-									<li>電話號碼:<input type="text"></li>
+									<li>電話號碼:<input type="tel"></li>
 									<li>取貨地址:<input type="text"></li>
 									<li>備註說明:<input type="text"></li>
 								</ul>								
@@ -213,14 +198,9 @@
 							</div>
 							<button id="finish">完成</button>	
                         </div>
-                    </div>
-                
-               
+                    </div>              
              </div>
-             <!-- /#page-content-wrapper -->
-     
-         </div>
-         <!-- /#wrapper -->
+             <!-- /#page-content-wrapper -->           
 	</div>
 	
 	<!-- jQuery -->
