@@ -548,7 +548,7 @@ h1, h2, h3, h4, h5, h6, figure {
   margin: 0;
 }
 .fh5co-contact-info ul li {
-  padding: 0 0 0 0px;
+  padding: 0 0 0 5px;
   margin: 0 0 15px 0;
   list-style: none;
   position: relative;

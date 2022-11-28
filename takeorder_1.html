@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shipment</title>
+    <title>upload</title>
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -42,7 +42,7 @@
         <script src="js/modernizr-2.6.2.min.js"></script>
         <script src="script/index.js"></script>   
         
-    <link rel="stylesheet" href="css/shipment.css"> 
+        <link rel="stylesheet" href="css/upload.css">
         
 </head>
 
@@ -93,17 +93,31 @@
 			
 		</div>
 	</nav>
-
+    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/sea.jpg); margin-bottom: 30px;">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<h1>Member centre</h1>
+							<h2>National Taiwan Ocean University</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
     <div id="fh5co-contact">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5 animate-box" style="width:fit-content;">
 					<div class="fh5co-contact-info">
-						<h3>Member Centre:</h3>
+						<h3 style="border-bottom: 1px solid rgba(1, 6, 101, 0.378);">Member Centre</h3>
 						<ul>
                             <li><a href="login.html" id="in_out">Sign in/out</a></li>
                             <li><a href="shipment.html" id="check_in_out_1">訂單查詢</a></li>
-                            <li><a href="upload.html" id="check_in_out_2">上架商品</a></li>
+                            <li><a href="upload.html" id="check_in_out_2" style="color:rgb(1, 6, 101);">上架商品</a></li>
                             <li><a href="takeoff.html" id="check_in_out_3">我的商品</a></li>
                             <li><a href="#" id="check_in_out_4">個人資料</a></li>
                             <li><a href="chatroom.html" id="check_in_out_5">聊天室</a></li>
@@ -113,60 +127,86 @@
 				</div>
 
 
-				<div class="col-md-8 animate-box" style="padding-left: 80px">
-                    <h2>賣家出貨／買家取貨</h2>
-                    <table id ="shipment" style="margin-right: 0px;">
+				<div class="col-md-9 animate-box" style="padding-left: 80px">
+                    <h2 id="title">上架商品</h2>
+                    <table id="upload">
                         <tr>
-                            <th>購買日期</th>
-                            <th>訂單編號</th>
-                            <th>付款方式</th>
-                            <th>應付金額</th>
-                            <th>處理進度</th>
+                            <td>商品名稱：</td>
+                            <td><input type="text" id="productName" name="productName"></td>
                         </tr>
                         <tr>
-                            <td>Ex. 11-24-2022</td>
-                            <td>Ex. 0001</td>
-                            <td>Ex. 面交</td>
-                            <td>Ex. $150</td>
-                            <td><select id="productStatus" name="productStatus" style="padding: 5px;">
-                                <option value="ready">準備中</option>
-                                <option value="ship">訂單已出貨</option>
-                                <option value="pickup">可取貨</option>
-                                <option value="finish">訂單已完成</option>
+                            <td>商品簡介：</td>
+                            <td><input type="text" id="productIntro" name="productIntro"></td>
+                        </tr>
+                        <tr>
+                            <td>商品分類：</td>
+                            <td><select id="productCate" name="productCate">
+                                        <option value="Book">Book</option>
+                                        <option value="Clothes">Clothes</option>
+                                        <option value="3C">3C</option>
+                                    </select><br>
                             </td>
                         </tr>
                         <tr>
-                            <td>Ex. 11-24-2022</td>
-                            <td>Ex. 0010</td>
-                            <td>Ex. 全家</td>
-                            <td>Ex. $250</td>
-                            <td><select id="productStatus" name="productStatus" style="padding: 5px;">
-                                <option value="ready">準備中</option>
-                                <option value="ship">訂單已出貨</option>
-                                <option value="pickup">可取貨</option>
-                                <option value="finish">訂單已完成</option>
+                            <td>新舊程度：</td>
+                            <td>
+                                <div style="text-align: center;">
+                                    <div class="container" style="display: flex;">
+                                        <div class="feedback">
+                                            <div class="rating">
+                                                <input type="radio" name="rating" id="rating-5" value="5">
+                                                <label for="rating-5"></label>
+                                                <input type="radio" name="rating" id="rating-4" value="4">
+                                                <label for="rating-4"></label>
+                                                <input type="radio" name="rating" id="rating-3" value="3">
+                                                <label for="rating-3"></label>
+                                                <input type="radio" name="rating" id="rating-2" value="2">
+                                                <label for="rating-2"></label>
+                                                <input type="radio" name="rating" id="rating-1" value="1">
+                                                <label for="rating-1"></label>
+                                            </div>
+                                        </div>
+                                    </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>Ex. 11-24-2022</td>
-                            <td>Ex. 0100</td>
-                            <td>Ex. 7-Eleven</td>
-                            <td>Ex. $300</td>
-                            <td><select id="productStatus" name="productStatus" style="padding: 5px;">
-                                <option value="ready">準備中</option>
-                                <option value="ship">訂單已出貨</option>
-                                <option value="pickup">可取貨</option>
-                                <option value="finish">訂單已完成</option>
+                            <td>數量：</td>
+                            <td><input type="text" id="productNumber" name="productNumber" style="width:10%;"></td>
+                        </tr>
+                        <tr>
+                            <td>商品照片：</td>
+                            <td><input type="file" id="productPic" name="productPic" /></td>
+                        </tr>
+                        <tr>
+                            <td>詳細資訊及描述：</td>
+        
+                            <td>
+                                <textarea id="productDescription" name="productDescription" rows="4" cols="50" placeholder="詳細資訊及描述：" style="resize: none; border-radius: 10px; width: 100%; height: 100%;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>商品價錢：</td>
+                            <td><input type="text" id="productPrice" name="productPrice" placeholder="定價" style="width:20%; text-align: center;"> or
+                                <input type="text" id="productPrice" name="productPrice" placeholder="競標" style="width:10%; text-align: center;">
+                                <input type="text" id="productPrice" name="productPrice" placeholder="一刀" style="width:10%; text-align: center;"></td>
+                        </tr>
+                        <tr>
+                            <td>付款方式：</td>
+                            <td><input type="checkbox" class="payMethod" id="payPickUp" value="payPickUp"> 取貨付款 <input type="checkbox" class="payMethod" id="payRemit" value="payPickUp"> 匯款 </td>
+                        </tr>
+                        <tr>
+                            <td>退貨方式：</td>
+                            <td><input type="checkbox" class="returnMethod" id="return711" value="return711"> 7-Eleven <input type="checkbox" class="returnMethod" id="returnFamily" value="returnFamily"> 全家 <input type="checkbox" class="returnMethod" id="returnFace"
+                                    value="returnFace"> 面交 </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <div style="text-align: right;">
+                                    <button id="canBtn" class="button" value="">取消編輯</button>
+                                    <button id="conBtn" class="button" value="">確認上架/更改</button></div>
                             </td>
                         </tr>
                     </table>
-				
-                    <!--<div style="padding-top: 50px; padding-left: 10px; margin: auto; width: 10%;">
-                        <button type="button" value="confirmTakeOff" style="font-size: 20px;">更新資訊</button></div>
-                    </div>-->
-                    <div class="form-group" style="margin-top: 15px; text-align: right;">
-                        <button id="" class="btn" style="background-color: rgb(233, 242, 250); color:#000A6B;">更新資訊</button>
-                    </div>
 			</div>
 			
 		</div>
