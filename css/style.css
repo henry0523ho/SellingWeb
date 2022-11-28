@@ -47,13 +47,14 @@ body {
 }
 
 a {
-  color: #d1c286;
+  color: rgba(1, 6, 101, 0.378);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
 }
 a:hover, a:active, a:focus {
-  color: #d1c286;
+  color: rgb(1, 6, 101);
+  font-weight: bold;
   outline: none;
   text-decoration: none;
 }
@@ -63,7 +64,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6, figure {
-  color: #000;
+  color: rgb(1, 6, 101);
   font-family: "Montserrat", Arial, sans-serif;
   font-weight: 400;
   margin: 0 0 20px 0;
@@ -547,8 +548,8 @@ h1, h2, h3, h4, h5, h6, figure {
   margin: 0;
 }
 .fh5co-contact-info ul li {
-  padding: 0 0 0 40px;
-  margin: 0 0 30px 0;
+  padding: 0 0 0 0px;
+  margin: 0 0 15px 0;
   list-style: none;
   position: relative;
 }
@@ -720,7 +721,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-about,
 #fh5co-contact,
 #fh5co-footer {
-  padding: 7em 0;
+  padding: 3em 0;
   clear: both;
 }
 @media screen and (max-width: 768px) {
