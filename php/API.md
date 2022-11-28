@@ -51,9 +51,18 @@ method="POST"
 "return" : [ ('success'|'failed') ]
 
 # putInCart.php
-
-
-
+```json
+method="POST"
+send={
+    "purchaseNum":5,//購物車中此商品購買數量
+    "purchaseState":"InCart",//狀態欄 購物車中:InCart
+    "productId":1//商品ID
+}
+response={
+    "state":200,
+    "message":"訊息"
+}
+```
 # placeOrder.php 
 一個商品，結帳
 
