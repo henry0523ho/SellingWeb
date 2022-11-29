@@ -1,0 +1,37 @@
+.center {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+  }
+  .center h2{
+    color: #010665;
+    font-weight: bold;
+}
+#cart{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+#cart td,#cart th {
+    width: 30%;
+    border: 0px;
+    padding: 8px;
+ }
+ #cart tr:nth-child(even){background-color: #f2f2f2;}
+  
+ #cart th {
+   padding-top: 12px;
+   padding-bottom: 12px;
+   border: 0px;
+   text-align: left;
+   font-size: 35px;
+   font-weight: bold;
+   color: #010665;
+ }
+ #order{
+    margin: 20px;
+    margin-right:20px;
+    float: right;
+ }
