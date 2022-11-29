@@ -1,11 +1,20 @@
+.center {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+  }
+  .center h1{
+    color: #010665;
+    font-weight: bold;
+  }
 #tab {
     width: 100%;
     text-align: center;
-    border: solid 1px #e9f2fa;
+   
 }
 
 #tab > ul {
-    /* overflow: hidden; */
+    overflow: hidden; 
     margin: 0;
     padding: 10px 20px 0 20px;
 }
@@ -21,9 +30,9 @@
     font-size: 20px;
     background-color:#e9f2fa ;
     color: #010665;
-    float:left;
+    float: left;
     padding: 10px;
-    border-style: solid;
+    border: solid;
     margin-left: 5px;
 }
 #CartProduct{
@@ -41,14 +50,15 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
-#pay{
+#pay,#back,#next{
     width: 200px;
     margin-top: 50px;
     margin-bottom: 50px;
 }
-#ChooseMethod {
-    text-align: left;
+#ChooseMethod,#FinishMethod {
+    text-align:left;
+    margin: auto;
 }
-#hooseMethod ul li {
-    width: auto;
+#content-2 > ul> li{
+    text-align: justify;
 }
