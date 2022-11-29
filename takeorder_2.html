@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>takeorder01</title>
+    <title>takeorder02</title>
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -126,34 +126,32 @@
 						
 					</div>
 				</div>
-                <h2 id="title">確認購買明細</h2>
-                <table id ="CartProduct" style="margin-right: 0px;">
-                    <tr>
-                        <th>商品名稱</th>
-                        <th>商品資訊</th>
-                        <th>數量</th>
-                        <th>單價</th>
-                        <th>小計</th>
-                    </tr>
-                    <tr>
-                        <td>商品A</td>
-                        <td>大</td>
-                        <td>1</td>
-                        <td>$150</td>
-                        <th>$150</th>
-                    </tr>
-                    <tr>
-                        <td>商品A</td>
-                        <td>大</td>
-                        <td>1</td>
-                        <td>$150</td>
-                        <th>$150</th>
-                    </tr>
-                    
-                </table>
-                <div class="form-group" style="margin-top: 15px; text-align: right;">
-                    <button id="keepshopping" class="btn" style="background-color: rgb(233, 242, 250); color:#000A6B;">繼續購物</button>	
-                    <button id="pay" class="btn" style="background-color: rgb(233, 242, 250); color:#000A6B;">結帳</button>	
+
+                <div class="col-md-6 text-center" style="padding-top: 30px;">
+                    <h2 id="title">配送和付款方式</h2>
+                    <div id="ChooseMethod" class="formlist">
+                        <input type="radio" name="method">面交<br><br>
+                        <input type="radio" name="method">7-11(請先匯款)<br><br>
+                        <input type="radio" name="method">全家(請先匯款)<br><br>
+                        <p><input id="" name="" type="text" placeholder="備註說明"></p>						
+                        								
+                    </div>    
+                </div>
+            
+            
+                <div class="col-md-6 text-center" style="padding-top: 30px;">
+                    <h2 id="title">填寫收件資料</h2>
+
+                    <div id="ChooseMethod" class="formlist">
+                        <p><input id="" name="" type="text" placeholder="使用者姓名"></p>
+                        <p><input id="" name="" type="text" placeholder="電話號碼"></p>
+                        <p><input id="" name="" type="text" placeholder="取貨地址"></p>								
+                    </div>
+                </div>
+                
+                <div class="form-group" style="margin-top: 0px; text-align: right;">
+                    <button id="back" class="btn" style="background-color: rgb(233, 242, 250); color:#000A6B; margin-top: 10px;">上一步</button>	
+					<button id="next" class="btn" style="background-color: rgb(233, 242, 250); color:#000A6B;  margin-top: 10px;">下一步</button>
                 </div>		
                 
             </div>

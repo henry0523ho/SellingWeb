@@ -36,8 +36,8 @@
     margin-left: 5px;
 }
 #CartProduct{
-    border: solid; 
-    margin-top:100px ;
+    border: 1px solid rgb(1, 6, 101); 
+    margin-top:0px ;
 }
 #CartProduct  td{
     text-align: justify;
@@ -45,14 +45,9 @@
     text-align: justify;
 }
 
-#keepshopping{
+#keepshopping, #pay,#back,#next{
     width: 200px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-#pay,#back,#next{
-    width: 200px;
-    margin-top: 50px;
+    margin-top: 10px;
     margin-bottom: 50px;
 }
 #ChooseMethod,#FinishMethod {
@@ -62,3 +57,11 @@
 #content-2 > ul> li{
     text-align: justify;
 }
+#title {
+    width: 100%;
+    padding: 2px;
+    margin-top: 20PX;
+    color: rgba(1, 6, 101);;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(1, 6, 101, 0.378);
+  }
