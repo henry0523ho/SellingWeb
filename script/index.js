@@ -7,7 +7,7 @@ $(document).ready(function() {
         $.post("php/getSession.php", null, function(data, status) {
             let res = JSON.parse(data);
             if (res.state == 200) {
-                let yes = confirm('以登入，是否要登出');
+                let yes = confirm('已登入，是否要登出');
                 if (yes) {
                     console.log("登出!!");
                     logout();
