@@ -1,4 +1,3 @@
-console.log("hello");
 $(document).ready(function() {
     checkLogin(displayUserName);
     $("#in_out").click(function() {
