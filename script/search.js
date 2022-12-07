@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    $("#display_order").change(function(){
+        let opt=$("#display_order").val();
+        console.log(opt);
+    });
     $("#searchBtn").click(function(){
         let parent = document.getElementById("showProduct");
         let divs = document.getElementsByClassName("col-md-4 text-center animate-box fadeInUp animated-fast");
