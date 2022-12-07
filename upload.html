@@ -2,54 +2,50 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>upload</title>
-
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shop</title>
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <!-- BootStrap -->
+    <!-- BootStrap 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">-->
 
-    <link rel="stylesheet" href="css/login.css">
-    <script src="script/login.js"></script>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
 
-        <meta name="description" content="Free HTML5 Website Template by gettemplates.co" />
-        <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-        <meta name="author" content="gettemplates.co" />
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	
+	<link rel="stylesheet" href="css/login.css">
+
+    <script src="script/index.js"></script>   
+    <script src="script/upload.js"></script>   
+    <script src="script/uploadImage.js"></script>   
     
-        <!-- Animate.css -->
-        <link rel="stylesheet" href="css/animate.css">
-        <!-- Icomoon Icon Fonts-->
-        <link rel="stylesheet" href="css/icomoon.css">
-        <!-- Bootstrap  -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-    
-        <!-- Flexslider  -->
-        <link rel="stylesheet" href="css/flexslider.css">
-    
-        <!-- Owl Carousel  -->
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    
-        <!-- Theme style  -->
-        <link rel="stylesheet" href="css/style.css">
-    
-        <!-- Modernizr JS -->
-        <script src="js/modernizr-2.6.2.min.js"></script>
-        <script src="script/index.js"></script>   
-        <script src="script/upload.js"></script>   
-        <script src="script/uploadImage.js"></script>   
-        
-        <link rel="stylesheet" href="css/upload.css">
+    <link rel="stylesheet" href="css/upload.css">
         
 </head>
 
 <body>
-    
+    <div id="page">
+
     <nav class="fh5co-nav" role="navigation">
 		<div class="container">
 			<div class="row">
@@ -95,6 +91,7 @@
 			
 		</div>
 	</nav>
+
     <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/sea.jpg); margin-bottom: 30px;">
 		<div class="overlay"></div>
 		<div class="container">
@@ -102,7 +99,7 @@
 				<div class="col-md-8 col-md-offset-2 text-center">
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<h1>Member centre</h1>
+							<h1>Sign in or Join us</h1>
 							<h2>National Taiwan Ocean University</h2>
 						</div>
 					</div>
@@ -113,7 +110,7 @@
     <div id="fh5co-contact">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-5 animate-box" style="width:fit-content;">
+				<div class="col-md-3 animate-box" >
 					<div class="fh5co-contact-info">
 						<h3 style="border-bottom: 1px solid rgba(1, 6, 101, 0.378);">Member Centre</h3>
 						<ul>
@@ -129,7 +126,7 @@
 				</div>
 
 
-				<div class="col-md-9 animate-box" style="padding-left: 80px">
+				<div class="col-md-9 animate-box" >
                     <h2 id="title">上架商品</h2>
                     <table id="upload">
                         <tr>
@@ -188,8 +185,15 @@
                         <tr>
                             <td>商品價錢：</td>
                             <td><input type="text" id="productPrice" name="productPrice" placeholder="定價" style="width:20%; text-align: center;"> or
-                                <input type="text" id="productPrice" name="productPrice" placeholder="競標" style="width:10%; text-align: center;">
-                                <input type="text" id="productPrice" name="productPrice" placeholder="一刀" style="width:10%; text-align: center;"></td>
+                                <input type="text" id="productPrice" name="productPrice" placeholder="競標" style="width:20%; text-align: center;">
+                                <input type="text" id="productPrice" name="productPrice" placeholder="一刀" style="width:20%; text-align: center;">
+                            </td>
+                        </tr>                                
+                        <tr>
+                            <td>競標時間:</td>
+                            <td> 
+                                現在 ~ <input type="date" id="" name="" placeholder="">
+                            </td>
                         </tr>
                         <tr>
                             <td>付款方式：</td>
@@ -213,7 +217,7 @@
 			
 		</div>
 	</div>
-
+    </div>
     <!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

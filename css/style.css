@@ -938,7 +938,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-tabs .fh5co-tab-content-wrap .tab-content .price {
   letter-spacing: 2px;
-  border: 2px solid #d1c286;
+  border: 2px solid #dfedf4;
   display: inline-block;
   margin-bottom: 20px;
   padding: 7px 20px 10px 20px;
@@ -983,7 +983,7 @@ h1, h2, h3, h4, h5, h6, figure {
   padding-right: 20px;
 }
 .fh5co-tabs .fh5co-tab-content-wrap .feed > div .rate {
-  color: #ffba00;
+  color: #dfedf4;
 }
 .fh5co-tabs .icon-xlg {
   font-size: 400px;
@@ -1001,7 +1001,7 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 .fh5co-tabs .icon-xlg i {
-  color: #d1c286;
+  color: rgba(1, 6, 101, 0.378);
 }
 
 .fh5co-heading {
@@ -1087,7 +1087,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-started {
-  background: #d1c286;
+  background: rgb(186, 214, 240);
 }
 #fh5co-started .fh5co-heading h2 {
   color: #fff;
@@ -1147,7 +1147,7 @@ h1, h2, h3, h4, h5, h6, figure {
   position: absolute;
   z-index: 1901;
   width: 270px;
-  background: black;
+  background: rgb(0, 3, 61);
   top: 0;
   right: 0;
   top: 0;
@@ -1177,10 +1177,11 @@ h1, h2, h3, h4, h5, h6, figure {
   transform: translateX(0px);
 }
 #fh5co-offcanvas a {
-  color: rgba(255, 255, 255, 0.5);
+  color: #dfedf4bc;
 }
 #fh5co-offcanvas a:hover {
-  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  color: #dfedf4;
 }
 #fh5co-offcanvas ul {
   padding: 0;
@@ -1204,7 +1205,8 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-offcanvas ul li input[type=text] {
   padding: 6px 10px;
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(231, 139, 139, 0.1);
   float: right;
   font-size: 13px;
   margin-top: 4px;
@@ -1231,7 +1233,7 @@ h1, h2, h3, h4, h5, h6, figure {
   background: transparent !important;
 }
 #fh5co-offcanvas ul li button:hover i, #fh5co-offcanvas ul li button:focus i {
-  color: white;
+  color: #dfedf4;
 }
 #fh5co-offcanvas ul li.shopping-cart {
   float: left;
@@ -1239,7 +1241,11 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-offcanvas ul li a.cart {
   display: block;
   margin-top: 30px;
-  color: rgba(255, 255, 255, 0.5);
+  color: #dfedf4e8;
+}
+#fh5co-offcanvas ul li a.cart:hover {
+  font-weight: bold;
+  color: #dfedf4;
 }
 #fh5co-offcanvas ul li a.cart span {
   position: relative;
@@ -1251,7 +1257,7 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 10px 6px;
   line-height: 0;
   font-size: 11px;
-  background: #d1c286;
+  background: #dfedf4;
   color: white;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;

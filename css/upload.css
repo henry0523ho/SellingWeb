@@ -162,7 +162,7 @@
 /*       Hamburger-Cross         */
 /*-------------------------------*/
 
-.hamburger {
+/*.hamburger {
   position: fixed;
   top: 20px;  
   z-index: 999;
@@ -270,7 +270,7 @@
   display: block;
   -webkit-transform: translate3d(-100px,0,0);
   -webkit-transition: all .35s ease-in-out;
-}
+}*/
 
 /*-------------------------------*/
 /*            Overlay            */

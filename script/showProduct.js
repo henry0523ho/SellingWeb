@@ -8,7 +8,6 @@ function showAllProduct() {
         url: 'php/showProduct.php',
         type: "POST",
         success: function(result) {
-            console.log(result);
             let objs = JSON.parse(result);
             if (objs.state != 200) {
                 console.log("fetch showProduct.php failed");
@@ -28,6 +27,8 @@ function showAllProduct() {
 
                 let div02 = document.createElement("div");
                 div02.setAttribute("class", "product");
+                div02.setAttribute("id", "product");
+
 
                 let div03 = document.createElement("div");
                 div03.setAttribute("class", "product-grid");
@@ -43,6 +44,10 @@ function showAllProduct() {
 
                 let a01 = document.createElement("a");
                 a01.href = "fixed_page.html?" + objContext.id;
+                a01.setAttribute("id", "show")
+                a01.setAttribute("target", "_blank")
+
+
                 //a01.addEventListener("click", function(){displayDetail(objContext.id);})
                 a01.setAttribute("class", "icon");
 
@@ -53,7 +58,9 @@ function showAllProduct() {
 
                 let a02 = document.createElement("a");
                 a02.href = "fixed_page.html?" + objContext.id;
+                a02.setAttribute("id", "show")
                 a02.setAttribute("class", "icon");
+                a02.setAttribute("target", "_blank")
                 //a02.addEventListener("click", function(){displayDetail(objContext.id);})
                 let i02 = document.createElement("i");
                 i02.setAttribute("class", "icon-eye");
@@ -65,6 +72,9 @@ function showAllProduct() {
                 let a03 = document.createElement("a");
                 a03.href = "fixed_page.html";
                 a03.appendChild(document.createTextNode(objContext.name));
+                a03.setAttribute("id", "show")
+                a03.setAttribute("target", "_blank")
+
                 h301.appendChild(a03);
 
 
