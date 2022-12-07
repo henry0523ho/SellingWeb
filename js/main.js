@@ -285,7 +285,7 @@
 
 	var testimonialCarousel = function(){
 		
-		var owl = $('.owl-carousel-fullwidth');
+		/*var owl = $('.owl-carousel-fullwidth');
 		owl.owlCarousel({
 			items: 1,
 			loop: true,
@@ -294,7 +294,7 @@
 			dots: true,
 			smartSpeed: 800,
 			autoHeight: true
-		});
+		});*/
 
 	};
 
