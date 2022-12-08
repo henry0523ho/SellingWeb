@@ -3,11 +3,13 @@ require_once 'conn.php';
 $data=$_POST;
 $outputData = array();
 try{
-    $order = $_POST["order"];
+    $order = $data["order"];
+    $fiter = $data["filter"];
+
     $order_arr = explode("-", $order);
-
-
-    $sql = "SELECT * FROM product ORDER BY $order_arr[0] $order_arr[1];";
+    if($fiter == "undefined") $sql = "SELECT * FROM product ORDER BY $order_arr[0] $order_arr[1];";
+    else $sql = "SELECT * FROM product WHERE product_label = '$fiter' ORDER BY $order_arr[0] $order_arr[1];";
+    
     $result = $conn->query($sql);
     $outputData['data']=array();
     while($row = $result->fetch_assoc()){

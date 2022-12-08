@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    console.log("check login");
     checkLogin(displayUserName);
     $("#in_out").click(function() {
         //console.log("要不要登出");
@@ -45,7 +46,7 @@ function check() {
 function checkLogin(callback) {
     $.post("php/getSession.php", null, function(data, status) {
         let res = JSON.parse(data);
-        // console.log(data + " " + status);
+        console.log(data + " " + status);
         if (status == "success") {
             callback(res);
         } else return;
@@ -53,9 +54,9 @@ function checkLogin(callback) {
 }
 
 function displayUserName(sessionData) {
-    // console.log(username);
+    //console.log(username);
     if (sessionData.state == 200) {
-        // console.log(document.getElementById("logoName"));
+        console.log(document.getElementById("logoName"));
         document.getElementById("logoName").innerHTML = ("Hello-" + sessionData.userName);
     } else document.getElementById("logoName").innerHTML = ("Member");
 

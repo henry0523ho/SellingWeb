@@ -1,9 +1,18 @@
 $(document).ready(function(){
     $("#searchBtn").click(function(){
-        let parent = document.getElementById("showProduct");
+        console.log("search");
+        
+    })
+})
+
+function search(){
+    console.log("search");
+    let parent = document.getElementById("showProduct");
         let divs = document.getElementsByClassName("col-md-4 text-center animate-box fadeInUp animated-fast");
         let num = divs.length;
-        let name = $("#searchText").val();
+        //let name = $("#searchText").val();
+        let name = document.getElementById("searchText").value;
+        console.log(name);
         $.ajax({
             url : "http://localhost/workSpace/SellingWeb/php/search.php",
             type : "POST",
@@ -104,5 +113,4 @@ $(document).ready(function(){
             }
             //document.getElementById("showProduct").innerHTML = string;
         })
-    })
-})
+}

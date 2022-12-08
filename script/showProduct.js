@@ -1,23 +1,49 @@
 $(document).ready(function() {
-
-    let opt=$("#display_order").val();
-    console.log(opt);
-    showAllProduct(opt);
+    $("#searchBtn").click(function(){
+        console.log("search");
+    });
+    showAllProduct(chooseOrder(), chooseFilter());
 
     $("#display_order").change(function(){
-        clear();
-        opt=$("#display_order").val();
-        console.log(opt);
-        showAllProduct(opt);
+        clear();    
+        showAllProduct(chooseOrder(), chooseFilter());
     });
 });
 
+function chooseFilter(){
+    let label = location.search.split("?")[1];
+    let filter="";
+    switch(label){
+        case "book":
+            filter = "book";
+            break;
+        case "clothes":
+            filter = "clothes";
+            break;
+        case "3C":
+            filter = "3C";
+            break;
+        default:
+            filter = "undefined";
+            break;
+    }
+    return filter;
+}
 
-function showAllProduct(opt) {
+function chooseOrder(){
+    return $("#display_order").val();
+}
+
+function clear(){
+    document.getElementById("showProduct").innerHTML = "";
+}
+
+function showAllProduct(opt, filter) {
+    console.log(opt + " " + filter);
     $.ajax({
         url: 'php/showProduct.php',
         type: "POST",
-        data: { "order": opt },
+        data: { "order": opt , "filter": filter},
 
         success: function(result) {
             let objs = JSON.parse(result);
@@ -124,6 +150,3 @@ function showAllProduct(opt) {
     });
 }
 
-function clear(){
-    document.getElementById("showProduct").innerHTML = "";
-}

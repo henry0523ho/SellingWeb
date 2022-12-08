@@ -7,11 +7,10 @@
 	<title>index</title>
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <!-- BootStrap 
+    <!-- BootStrap --
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">-->
 
-	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -52,9 +51,9 @@
 				<div class="col-md-6 col-xs-6 text-center menu-1">
 					<ul>
 						<li><a href="">New</a></li>
-						<li><a id="book" href="book.html">Book</a></li>
-						<li><a id="clothes" href="clothes.html">Clothes</a></li>
-						<li><a id="3c" href="3C.html">3C</a></li>
+						<li><a id="book" href="index.html?book">Book</a></li>
+						<li><a id="clothes" href="index.html?clothes">Clothes</a></li>
+						<li><a id="3c" href="index.html?3C">3C</a></li>
 						<li><a href="">Sale</a></li> 
 
                         <li class="has-dropdown">
@@ -76,8 +75,9 @@
 						<li class="search">
 							<div class="input-group">
 						      <input id="searchText" type="text" placeholder="Search..">
+
 						      <span class="input-group-btn">
-						        <button id="searchBtn" class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+						    	<button id="searchBtn" class="btn btn-primary" type="button" onclick="search()"><i class="icon-search"></i></button>
 						      </span>
 						    </div>
 						</li>

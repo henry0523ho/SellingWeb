@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log("record");
     $("a").click(function(){
         console.log("click");
     });
