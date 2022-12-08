@@ -1,12 +1,24 @@
 $(document).ready(function() {
-    showAllProduct();
+
+    let opt=$("#display_order").val();
+    console.log(opt);
+    showAllProduct(opt);
+
+    $("#display_order").change(function(){
+        clear();
+        opt=$("#display_order").val();
+        console.log(opt);
+        showAllProduct(opt);
+    });
 });
 
 
-function showAllProduct() {
+function showAllProduct(opt) {
     $.ajax({
         url: 'php/showProduct.php',
         type: "POST",
+        data: { "order": opt },
+
         success: function(result) {
             let objs = JSON.parse(result);
             if (objs.state != 200) {
@@ -110,4 +122,8 @@ function showAllProduct() {
             //document.getElementById("showProduct").innerHTML = string;
         },
     });
+}
+
+function clear(){
+    document.getElementById("showProduct").innerHTML = "";
 }

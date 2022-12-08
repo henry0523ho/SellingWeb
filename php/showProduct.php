@@ -1,8 +1,13 @@
 <?php 
 require_once 'conn.php'; 
+$data=$_POST;
 $outputData = array();
 try{
-    $sql = "SELECT * FROM product ORDER BY product_postdate DESC;";
+    $order = $_POST["order"];
+    $order_arr = explode("-", $order);
+
+
+    $sql = "SELECT * FROM product ORDER BY $order_arr[0] $order_arr[1];";
     $result = $conn->query($sql);
     $outputData['data']=array();
     while($row = $result->fetch_assoc()){
