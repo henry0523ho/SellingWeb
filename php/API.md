@@ -81,9 +81,6 @@ response={
     ]
 }
 ```
-<hr>
-<hr>
-
 # delProduct
 ```json
 method="POST"
@@ -137,4 +134,47 @@ response={
 }
 ```
 
+# chatTalk.php
 
+```json
+method="POST"
+send={
+    "userIdTo":1, //對方的user_id
+    "chatText":"你媽死了"   //聊天的訊息
+}
+response={
+    "state":200,
+    "message":"OK"
+}
+
+```
+
+# chatHistory.php
+
+```json
+method="POST"
+send={
+    "userId":2, // 對方的userId
+    "timeFrom":"2022-01-01 00:00:00",   //搜尋時間區間起點，若設為""則默認為'1000-01-01 00:00:00'
+    "timeTo":"2022-12-31 00:00:00"      //搜尋時間區間終點，若設為""則默認為'9999-12-31 23:59:59'
+}
+response={ 
+    "chatData": [   //只會回傳符 "合搜尋條件" 且 "最新" 的20筆資料(若沒有輔合的項目可能回傳空陣列，超過20筆的資料也不傳)，由新到舊排列
+        {
+            "userIdFrom": "1",
+            "userIdTo": "2",
+            "chatText": "登入送坦克",
+            "chatTime": "2022-12-12 10:09:51",
+            "chatId": "5"
+        },
+        {
+            "userIdFrom": "2",
+            "userIdTo": "1",
+            "chatText": "六四天安門",
+            "chatTime": "2022-12-12 10:09:08",
+            "chatId": "4"
+        }
+    ],
+    "state": 200,
+    "message": "OK"
+}
