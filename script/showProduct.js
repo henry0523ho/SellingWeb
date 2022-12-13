@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $("#searchBtn").click(function(){
         console.log("search");
     });
@@ -108,7 +109,7 @@ function showAllProduct(opt, filter) {
                 let h301 = document.createElement("h3");
 
                 let a03 = document.createElement("a");
-                a03.href = "fixed_page.html";
+                a03.href = "fixed_page.html?" + objContext.id;
                 a03.appendChild(document.createTextNode(objContext.name));
                 a03.setAttribute("id", "show")
                 a03.setAttribute("target", "_blank")

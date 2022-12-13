@@ -12,6 +12,34 @@ function displayDetail(search) {
         success: function(result) {
             console.log(result);
             let datas = JSON.parse(result);
+
+            let obj = {
+                id: id,
+                name: datas.data.name,
+                price: datas.data.price,
+                url: datas.data.url
+            };
+            //console.log(obj);
+            var products = JSON.parse(localStorage.getItem("products"));
+            if(products == null){
+                let newProudcts = []
+                newProudcts.push(obj)
+                localStorage.setItem("products", JSON.stringify(newProudcts))
+                //console.log(localStorage)
+            }else{
+                //console.log(products);
+                let find = $.map(products, function(item, index) {
+                    return item.id;
+                  }).indexOf(obj.id);
+                if(find == -1){
+                    //console.log("加!!!");
+                    products.push(obj)
+                    localStorage.setItem("products",JSON.stringify(products));
+                }
+                //else console.log("不加!!!");
+            }
+
+
             document.getElementById("product_img").setAttribute("src", datas.data.url);
             console.log(document.getElementById("product_img"));
 
@@ -19,6 +47,7 @@ function displayDetail(search) {
             document.getElementById("product_price").innerHTML = '$' + datas.data.price;
             document.getElementById("product_title").innerHTML = datas.data.name;
             document.getElementById("product_info").innerHTML = datas.data.info;
+
 
             let state = document.getElementById("product_state");
             state.appendChild(document.createTextNode('old '));
@@ -43,6 +72,7 @@ function displayDetail(search) {
                 option.innerHTML = i;
                 num.appendChild(option);
             }
+
         },
     });
 }
