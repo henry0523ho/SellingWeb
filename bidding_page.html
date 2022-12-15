@@ -35,6 +35,7 @@
 		<link rel="stylesheet" href="css/login.css">
 
             <script src="script/index.js"></script>
+            <script src="script/bidding_page.js"></script>
             <!--<script>(function(d, s, id) {
                 var js, timetacojs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
@@ -180,28 +181,25 @@
 
                                         <h2 class="uppercase" style="display: inline">current Price:</h2>
                                         <span style="margin-left: 20px;" id="now_price"> 
-                                            $300
                                         </span>
                                         <br><br>
                                         
                                         <h2 class="uppercase" style="display: inline">add price:</h2>
-                                        <span style="margin-left: 20px;" id="now_price"> 
-                                            $50/刀
+                                        <span style="margin-left: 20px;" id="low_price"> 
                                         </span>
                                         <br><br>
 
                                         <h2 class="uppercase" style="display: inline">countdown:</h2>
                                         <span style="margin-left: 20px;" id="time"> 
-                                            <progress id="" value="32" max="100"> value = 幾%進度</progress>
+                                            <progress id="timeLast" value="32" max="100"> value = 幾%進度</progress>
                                         </span>
 
                                         <br><br>
 
                                         <h2 class="uppercase" style="display: inline">Add:</h2>
                                         <span style="margin-left: 20px;" id="time"> 
-                                            <input id="" name="" type="number" placeholder="1" width="10%"> /刀
+                                            <input id="addBid" name="" type="number" value="1" width="10%" min="1"> /刀
                                         </span>
-
                                         <!--<h2 class="uppercase" style="display: inline">Quantity:</h2>
                                         <select id="product_num">
                                             
@@ -210,7 +208,7 @@
                                         <br><br>
                                         <p>
                                             <a href="#" class="btn btn-primary btn-outline ">Send mesage</a>
-                                            <a href="#" class="btn btn-primary btn-outline ">Bidding this</a>
+                                            <a href="#" id="comfirmBidding" class="btn btn-primary btn-outline ">Bidding this</a>
                                         </p>
                             
                                     </div>
