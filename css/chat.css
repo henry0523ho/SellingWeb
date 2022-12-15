@@ -1,0 +1,35 @@
+.no_read{
+    font-weight: bold;
+    color: rgba(1, 6, 101);
+}
+
+.message{
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.message::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+  
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+  
+.time-right {
+    float: right;
+    color: #aaa;
+}
+  
+.time-left {
+    float: left;
+    color: #999;
+}
+

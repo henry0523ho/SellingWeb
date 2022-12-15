@@ -1,4 +1,4 @@
-#takeoff {
+#takeoff, #chat_box {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -6,7 +6,7 @@
     font-size: 15px;
 }
   
-#takeoff td, #takeoff th {
+#takeoff td, #takeoff th, #chat_box td, #chat_box th {
     min-height: 25px;
     border: 3px solid white;
     padding: 8px;
@@ -15,7 +15,10 @@
 #takeoff tr:nth-child(odd){background-color: rgb(244, 249, 253);}
 #takeoff tr:hover {background-color: rgb(233, 231, 231);}
 
-#takeoff th {
+#chat_box tr:nth-child(odd){background-color: rgb(244, 249, 253);}
+#chat_box tr:hover {background-color: rgb(233, 231, 231);}
+
+#takeoff th, #chat_box th {
     min-height: 25px;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -32,4 +35,4 @@
     color: rgba(1, 6, 101);;
     font-weight: bold;
     border-bottom: 1px solid rgba(1, 6, 101, 0.378);
-  }
+}

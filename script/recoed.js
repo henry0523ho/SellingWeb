@@ -1,9 +1,10 @@
 $(document).ready(function() {
     var products = JSON.parse(localStorage.getItem("products"))
     //console.log(products);
-    products.reverse(); //反向排序
     //console.log(products);
     if(products != null){
+        products.reverse(); //反向排序
+
         for(let i=0; i<products.length; i++){
             let product = products[i];
     
