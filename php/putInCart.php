@@ -7,9 +7,7 @@ try{
     $purchaseState=$_POST["purchaseState"];
     $productId=$_POST["productId"];
     session_start();
-    //$userId=$_SESSION["userId"];
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-        //$sql = "SELECT product_id FROM purchase WHERE product_id='".$productId."';";
         $sql = "SELECT purchase_state 
                 FROM purchase 
                 WHERE user_id='". $_SESSION["userId"] ."'

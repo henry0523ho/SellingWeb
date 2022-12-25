@@ -1,5 +1,8 @@
 $(document).ready(function(){
     getCart();
+    $("#order").click(function(){
+        orderBtnClick();
+    })
 })
 
 function getCart(){
@@ -25,8 +28,9 @@ function showCart(result){
                 $("<td></td>")
                 .append(
                     $("<input>")
+                    .attr("name","user_active_col[]")
                     .attr("type","checkbox")
-                    .attr("id","purchaseId-"+result.data[i].purchase_id)
+                    .attr("id",+result.data[i].purchase_id)
                 )
             )
             .append(
@@ -76,7 +80,7 @@ function getProduct(productId,purchaseId){
     })
     .done(function(result){
         let objs=JSON.parse(result);
-        console.log(objs);
+        //console.log(objs);
         $("#productImg-"+purchaseId)
         .attr("src",objs.data[0].product_img)
         $("#productName-"+purchaseId)
@@ -94,4 +98,21 @@ function removePurchase(purchaseId){
     .done(function(result){
         console.log(JSON.parse(result));
     })
+}
+function orderBtnClick(){
+    $("input[name='user_active_col[]']").each(function() {
+        if($(this).prop("checked")){
+            console.log($(this).attr("id"));
+            $.ajax({
+                url: "php/cartToOrdering.php",
+                type: "POST",
+                data: {"purchaseId": $(this).attr("id")}
+            })
+            .done(function(result){
+                let objs=JSON.parse(result);
+                console.log(objs);
+            })
+        }
+    });
+    //location.reload();
 }
