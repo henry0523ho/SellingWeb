@@ -30,6 +30,7 @@ try{
             }else{
                 $tmp['alreadyRead']=1;
             }
+            $tmp['chat_time']=$ret['chat_time'];
             array_push($outputData['chatList'],$tmp);
         }
         $outputData['state']=200;
