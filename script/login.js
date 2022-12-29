@@ -3,7 +3,7 @@ $(document).ready(function() {
         login($('#loginName').val(), $("#loginPwd").val());
     });
     $("#regSubmit").click(function() {
-        register($('#regName').val(), $('#regEmail').val(), $('#regPwd').val(), $('#checkPwd').val());
+        register($('#regName').val(), $('#regEmail').val(), $('#regPwd').val(), $('#checkPwd').val(), $('#regTrueName').val(), $('#regPhone').val());
     });
 });
 
@@ -29,21 +29,24 @@ function login(userName, userPwd) {
     });
 }
 
-function register(userName, userEmail, userPwd, checkPassword) {
+function register(userName, userEmail, userPwd, checkPassword, realName, phone) {
     if (userPwd == checkPassword) {
         $.ajax({
             url: 'php/register.php',
             type: 'POST',
-            data: { "userName": userName, "userEmail": userEmail, "userPwd": userPwd },
+            data: { "userName": userName, "userEmail": userEmail, "userPwd": userPwd, "realName": realName, "phone": phone },
             success: function(result) {
                 let res = JSON.parse(result);
                 if (res.state == 200) {
-                    alert("註冊成功");
-                    document.location.href = "login.html"
+                    sendAuthMail(res.userId, function() {
+                        alert("註冊成功，請到信箱驗證帳號");
+                        document.location.href = "login.html";
+                    });
                 } else if (res.state == 409) {
                     alert("使用者名稱已存在")
                 } else {
                     alert("註冊失敗");
+                    console.log(result);
                 }
             },
             error: function(result) {
