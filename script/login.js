@@ -17,6 +17,10 @@ function login(userName, userPwd) {
             if (res.state == 200) {
                 alert("登入成功");
                 document.location.href = "index.html";
+            } else if (res.state == 401) {
+                sendAuthMail(res.userId, function() {
+                    alert("請先驗證信箱");
+                });
             } else {
                 alert("登入失敗，請檢查帳號密碼");
             }

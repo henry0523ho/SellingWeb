@@ -12,12 +12,18 @@ try{
     $outputData['message'] = "login failed";
     while($row= $result->fetch_assoc()){
         if(password_verify($userPwd,$row['user_pwd_hash'])){
-            session_start();
-            $_SESSION["loggedin"]=true;
-            $_SESSION["userName"]=$row['user_name'];
-            $_SESSION["userId"]=$row['user_id'];
-            $outputData['state']=200;
-            $outputData['message']="OK";
+            if($row['auth']=="OK"){
+                session_start();
+                $_SESSION["loggedin"]=true;
+                $_SESSION["userName"]=$row['user_name'];
+                $_SESSION["userId"]=$row['user_id'];
+                $outputData['state']=200;
+                $outputData['message']="OK";
+            }else{
+                $outputData["userId"]=$row['user_id'];
+                $outputData["state"]=401;
+                $outputData['message']="auth mail first";
+            }
         }
     }
 }catch(Exception $e){
