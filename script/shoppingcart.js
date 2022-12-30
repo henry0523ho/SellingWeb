@@ -1,10 +1,25 @@
 $(document).ready(function(){
+    check();
     getCart();
     $("#order").click(function(){
         orderBtnClick();
     })
 })
-
+function check() {
+    $.post("php/getSession.php", null, function(data, status) {
+        let res = JSON.parse(data);
+        if (res.state == 204) {
+            let yes = confirm('請先登入才可下一步');
+            if (yes) {
+                console.log("登入!!");
+                document.location.href = "login.html";
+            } else {
+                console.log("不登入!!");
+                document.location.href = "index.html";
+            }
+        }
+    });
+}
 function getCart(){
     $.ajax({
         url: "php/getCart.php",
