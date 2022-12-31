@@ -12,8 +12,6 @@ $(document).ready(function() {
                 if (yes) {
                     console.log("登出!!");
                     logout();
-                    alert("已登出，請重新登入");
-                    document.location.href = "login.html";
                 } else {
                     console.log("不登出!!");
                     // document.location.href = "index.html";
@@ -27,17 +25,19 @@ $(document).ready(function() {
     $("#check_in_out_4").click(check);
     $("#check_in_out_5").click(check);
 });
-function checkCartNum(){
+
+function checkCartNum() {
     $.ajax({
-        url: "php/getCart.php",
-        type: "GET"
-    })
-    .done(function(result){
-        console.log(JSON.parse(result));
-        if(JSON.parse(result)!="") $("#cart_product_num").html(JSON.parse(result).data.length);
-        else $("#cart_product_num").html('0');
-    })
+            url: "php/getCart.php",
+            type: "GET"
+        })
+        .done(function(result) {
+            console.log(JSON.parse(result));
+            if (JSON.parse(result) != "") $("#cart_product_num").html(JSON.parse(result).data.length);
+            else $("#cart_product_num").html('0');
+        })
 }
+
 function check() {
     $.post("php/getSession.php", null, function(data, status) {
         let res = JSON.parse(data);
@@ -76,5 +76,6 @@ function logout() {
     $.post("php/logout.php", null, function(data, status) {
         document.getElementById("logoName").innerHTML = ("Member");
         alert("以登出，請重新登入");
+        document.location.href = "login.html";
     });
 }
