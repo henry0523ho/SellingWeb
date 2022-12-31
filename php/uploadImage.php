@@ -15,7 +15,7 @@ try {
         $randstring = $randstring . '.' . $fileType;
         $dest = '../upload/' . $randstring;
         move_uploaded_file($file, $dest);
-        $url = 'http://localhost/workSpace/SellingWeb/upload/';
+        $url = $rootUrl;
         $filePath = $url . $randstring;
         $outputData['url'] = $filePath;
         $outputData['state'] = 200;
