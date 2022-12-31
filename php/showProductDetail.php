@@ -16,6 +16,7 @@ try{
             'num' => $row['product_num'],
             'text' => $row['product_text'],
             'info' => $row['product_info'],
+            'sellerId'=>$row['seller_id'],
         ];
         $outputData['state']=200;
         $outputData['message']="OK";
