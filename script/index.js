@@ -33,8 +33,9 @@ function checkCartNum(){
         type: "GET"
     })
     .done(function(result){
-        console.log(JSON.parse(result).data.length);
-        $("#cart_product_num").html(JSON.parse(result).data.length);
+        console.log(JSON.parse(result));
+        if(JSON.parse(result)!="") $("#cart_product_num").html(JSON.parse(result).data.length);
+        else $("#cart_product_num").html('0');
     })
 }
 function check() {
