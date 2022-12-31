@@ -20,7 +20,7 @@ function getSeller(){
 }
 function drawTable(reslut){
     for(let i=0;i<reslut.data.length;i++){
-        $("#takeorder_2table")
+        $("#buy")
         .append(
             $("<tr></tr>")
             .append(
@@ -42,7 +42,7 @@ function drawTable(reslut){
                         .attr("id","ChooseMethod-"+reslut.data[i].seller_id)
                         .attr("class","formlist")
                         .append(
-                            $("<div></div>")
+                            $('<div class="choose_radio"></div>')
                             .append(
                                 $("<input>")
                                 .attr("id","facetoface")
@@ -56,10 +56,8 @@ function drawTable(reslut){
                             )
                         )
                         
-                        .append($("<br>"))
-                        .append($("<br>"))
                         .append(
-                            $("<div></div>")
+                            $('<div class="choose_radio"></div>')
                             .append(
                                 $("<input>")
                                 .attr("id","711")
@@ -72,10 +70,8 @@ function drawTable(reslut){
                                 .html("711(請先匯款)")
                             )
                         )                        
-                        .append($("<br>"))
-                        .append($("<br>"))
                         .append(
-                            $("<div></div>")
+                            $('<div class="choose_radio"></div>')
                             .append(
                                 $("<input>")
                                 .attr("id","fami")
@@ -88,8 +84,6 @@ function drawTable(reslut){
                                 .html("全家(請先匯款)")
                             )
                         )
-                        .append($("<br>"))
-                        .append($("<br>"))
                         .append(
                             $("<p></p>")
                             .append(

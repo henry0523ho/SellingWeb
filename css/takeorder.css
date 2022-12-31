@@ -36,6 +36,7 @@
     margin-left: 5px;
 }
 #CartProduct{
+    width: 100%;
     border: 1px solid rgb(1, 6, 101); 
     margin-top:0px ;
 }
@@ -64,4 +65,144 @@
     color: rgba(1, 6, 101);;
     font-weight: bold;
     border-bottom: 1px solid rgba(1, 6, 101, 0.378);
-  }
+}
+.choose_radio{
+    margin-bottom: 10px;
+}
+/* 事件條 */
+.ps-timeline-sec {
+    position: relative;
+    background: #fff;
+}
+.ps-timeline-sec .container {
+    position: relative;
+}
+.ps-timeline-sec .container ol:before {
+    background: rgb(1, 6, 101);
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    position: absolute;
+    left: 8px;
+    top: 45px;
+}
+.ps-timeline-sec .container ol:after {
+    background: rgb(1, 6, 101);
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    position: absolute;
+    right: 8px;
+    top: 45px;
+}
+.ps-timeline-sec .container ol.ps-timeline {
+    margin: 50px 0;
+    padding: 0;
+    border-top: 2px solid rgb(1, 6, 101);
+    list-style: none;
+}
+.ps-timeline-sec .container ol.ps-timeline li {
+    float: left;
+    width: 33%;
+    padding-top: 30px;
+    position: relative;
+}
+.ps-timeline-sec .container ol.ps-timeline li span {
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    background: #fff;
+    border: 2px solid rgb(1, 6, 101);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0px #fff;
+    text-align: center;
+    line-height: 48px;
+    color: rgb(233, 242, 250);
+    font-size: 2em;
+    font-style: normal;
+    position: absolute;
+    top: -26px;
+    left: 50%;
+}
+.ps-timeline-sec .container ol.ps-timeline li span.state {
+    background-color: rgb(233, 242, 250);
+    color: rgb(1, 6, 101);
+    border: 4px solid rgb(1, 6, 101);
+}
+/* .ps-timeline-sec .container ol.ps-timeline li span.state:before {
+    content: "";
+    color: #348e80;
+    width: 2px;
+    height: 50px;
+    background: #348e80;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+}
+.ps-timeline-sec .container ol.ps-timeline li span.state:after {
+    content: "";
+    color: #348e80;
+    width: 8px;
+    height: 8px;
+    background: #348e80;
+    position: absolute;
+    bottom: 90px;
+    left: 44%;
+    border-radius: 100%;
+} */
+.ps-timeline-sec .container ol.ps-timeline li span.state:before {
+    content: "";
+    color: rgb(1, 6, 101);
+    width: 2px;
+    height: 50px;
+    background: rgb(1, 6, 101);
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+}
+.ps-timeline-sec .container ol.ps-timeline li span.state:after {
+    content: "";
+    color: rgb(1, 6, 101);
+    width: 8px;
+    height: 8px;
+    background: rgb(1, 6, 101);
+    position: absolute;
+    top: 90px;
+    left: 43%;
+    border-radius: 100%;
+}
+.ps-timeline-sec .container ol.ps-timeline li .img-handler-top {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 130px;
+    width: 100%;
+}
+.ps-timeline-sec .container ol.ps-timeline li .img-handler-top img {
+    display: table;
+    margin: 0 auto;
+}
+.ps-timeline-sec .container ol.ps-timeline li .img-handler-bot {
+    position: absolute;
+    margin-top: 60px;
+    width: 100%;
+}
+.ps-timeline-sec .container ol.ps-timeline li .img-handler-bot img {
+    display: table;
+    margin: 0 auto;
+}
+.ps-timeline-sec .container ol.ps-timeline li p {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.ps-timeline-sec .container ol.ps-timeline li .ps-top {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 100px;
+}
+.ps-timeline-sec .container ol.ps-timeline li .ps-bot { 
+    /* position: absolute; */
+    margin-top: 50px;
+}

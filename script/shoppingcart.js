@@ -20,7 +20,7 @@ function getCart(){
 }
 
 function showCart(result){
-    console.log(result.data.length  );
+    console.log(result.data.length);
     for(let i=0;i<result.data.length;i++){
         
         //console.log(product);
@@ -28,7 +28,7 @@ function showCart(result){
             $("<tr></tr>")
             .attr("id","productInCart-"+result.data[i].purchase_id)
             .append(
-                $("<td></td>")
+                $('<td class="cart_check"></td>')
                 .append(
                     $("<input>")
                     .attr("name","user_active_col[]")
@@ -37,29 +37,29 @@ function showCart(result){
                 )
             )
             .append(
-                $("<td></td>")
+                $('<td class="cart_img"></td>')
                 .append(
-                    $("<img>")
+                    $('<img>')
                     .attr("id","productImg-"+result.data[i].purchase_id)
 
                 )
 
             )
             .append(
-                $("<td></td>")
+                $('<td class="cart_name"></td>')
                 .attr("id","productName-"+result.data[i].purchase_id)
             )
             .append(
-                $("<td></td>")
+                $('<td class="cart_num"></td>')
                 .attr("id","productNum-"+result.data[i].purchase_id)
                 .html(result.data[i].purchase_num)
             )
             .append(
-                $("<td></td>")
+                $('<td class="cart_price"></td>')
                 .attr("id","productPrice-"+result.data[i].purchase_id)
             )
             .append(
-                $("<td></td>")
+                $('<td class="cart_del"></td>')
                 .append(
                     $("<button></button>")
                     .attr("id","remove-"+result.data[i].purchase_id)

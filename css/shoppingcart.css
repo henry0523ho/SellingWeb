@@ -15,11 +15,10 @@
     table-layout: fixed;
 }
 #cart td,#cart th {
-    width: 30%;
+    /* width: 30%; */
     border: 0px;
     padding: 8px;
  }
- #cart tr:nth-child(even){background-color: #f2f2f2;}
   
  #cart th {
    padding-top: 12px;
@@ -30,8 +29,31 @@
    font-weight: bold;
    color: #010665;
  }
- #order{
+ #butt{
     margin: 20px;
-    margin-right:20px;
     float: right;
  }
+ 
+.cart_check{
+  width: 10px;
+}
+.cart_img{
+  width: calc(100%/3);
+}
+.cart_img img{
+  width: 100px;
+  height: 100px;
+}
+.cart_name{
+  width: calc(100%/4);
+}
+.cart_num{
+  width: 30px;
+}
+.cart_price{
+  width: 30px;
+}
+.cart_del{
+  text-align: center;
+  width: 30px;
+}

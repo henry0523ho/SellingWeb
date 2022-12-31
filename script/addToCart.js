@@ -13,7 +13,9 @@ function addToCart(){
         }
     })
     .done(function(reslut){
+        alert("加入成功!!!")
         let obj=JSON.parse(reslut);
         console.log(obj);
+        location.reload();
     })
 }

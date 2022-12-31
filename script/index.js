@@ -1,6 +1,7 @@
 $(document).ready(function() {
     console.log("check login");
     checkLogin(displayUserName);
+    checkCartNum();
     $("#in_out").click(function() {
         //console.log("要不要登出");
 
@@ -26,7 +27,16 @@ $(document).ready(function() {
     $("#check_in_out_4").click(check);
     $("#check_in_out_5").click(check);
 });
-
+function checkCartNum(){
+    $.ajax({
+        url: "php/getCart.php",
+        type: "GET"
+    })
+    .done(function(result){
+        console.log(JSON.parse(result).data.length);
+        $("#cart_product_num").html(JSON.parse(result).data.length);
+    })
+}
 function check() {
     $.post("php/getSession.php", null, function(data, status) {
         let res = JSON.parse(data);
@@ -59,7 +69,6 @@ function displayUserName(sessionData) {
         console.log(document.getElementById("logoName"));
         document.getElementById("logoName").innerHTML = ("Hello-" + sessionData.userName);
     } else document.getElementById("logoName").innerHTML = ("Member");
-
 }
 
 function logout() {
