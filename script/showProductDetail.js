@@ -69,6 +69,7 @@ function displayDetail(search) {
             let num = document.getElementById("product_num");
             for (let i = 1; i <= datas.data.num; i++) {
                 let option = document.createElement("option");
+                option.setAttribute("value",i);
                 option.innerHTML = i;
                 num.appendChild(option);
             }

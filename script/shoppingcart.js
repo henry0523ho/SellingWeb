@@ -4,6 +4,9 @@ $(document).ready(function(){
     $("#order").click(function(){
         orderBtnClick();
     })
+    $("#continue").click(function(){
+        $(location).attr("href","index.html")
+    })
 })
 function getCart(){
     $.ajax({
@@ -100,8 +103,10 @@ function removePurchase(purchaseId){
     })
 }
 function orderBtnClick(){
+    var checkedNum=0;
     $("input[name='user_active_col[]']").each(function() {
         if($(this).prop("checked")){
+            checkedNum++;
             console.log($(this).attr("id"));
             $.ajax({
                 url: "php/cartToOrdering.php",
@@ -114,5 +119,10 @@ function orderBtnClick(){
             })
         }
     });
-    //location.reload();
+    if(checkedNum==0){
+        alert("請先勾選再下單")
+    }
+    else{
+        $(location).attr("href","takeorder_1.html")
+    }
 }
