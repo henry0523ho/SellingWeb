@@ -91,7 +91,7 @@ function myAPI(element) {
             let formData = new FormData();
             formData.append('image', element[0].files[0]);
             $.ajax({
-                url: "http://localhost/workSpace/SellingWeb/php/uploadImage.php",
+                url: "php/uploadImage.php",
                 type: "POST",
                 data: formData,
                 contentType: false, //required
