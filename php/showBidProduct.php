@@ -33,4 +33,5 @@ try{
 
 $outputJson = json_encode($outputData);
 echo $outputJson;
+$conn->close();
 ?>
