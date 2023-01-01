@@ -39,6 +39,7 @@ if($row[0][5] < 10){
 else{
     $date = $date.":".$row[0][5];
 }
+
 echo $date."\n";
 print_r($row);
 //echo $row[0][0];
