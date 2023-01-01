@@ -13,11 +13,54 @@ try{
     $productNewRate=$_POST["productNewRate"];
     $productInfo=$_POST["productInfo"];
     $productCost=$_POST["productCost"];
+    $productMethod = $_POST["productMethod"];
     session_start();
     if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
         if($productId==""){
-            $sql = "INSERT INTO product (product_name, product_num, product_img, product_text, product_label, product_new_rate, product_info, product_cost,seller_id) VALUES('" . $productName . "','" . $productNum . "','" . $productImg . "','" . $productText . "','" . $productLabel . "','" . $productNewRate . "','" . $productInfo . "','" . $productCost . "','" . $_SESSION["userId"] . "');";
-            $result = $conn->query($sql);
+            if($productMethod == 0){ //不二價
+                $sql = "INSERT INTO product (product_name, product_num, product_img, product_text, product_label, product_new_rate, product_info, product_cost,seller_id) VALUES('" . $productName . "','" . $productNum . "','" . $productImg . "','" . $productText . "','" . $productLabel . "','" . $productNewRate . "','" . $productInfo . "','" . $productCost . "','" . $_SESSION["userId"] . "');";
+                $result = $conn->query($sql);
+            }
+            else{ //競標
+                $productRaise = $_POST["productRaise"];
+                $productDateArr = $_POST["productDate"];
+                $productDate = json_decode($productDateArr);
+                $bidLength = $productDate[1][0];
+                if($productDate[1][1] < 10){
+                    $bidLength = $bidLength."-"."0".$productDate[1][1];
+                }
+                else{
+                    $bidLength = $bidLength."-".$productDate[1][1];
+                }
+                if($productDate[1][2] < 10){
+                    $bidLength = $bidLength."-"."0".$productDate[1][2];
+                }
+                else{
+                    $bidLength = $bidLength."-".$productDate[1][2];
+                }
+                if($productDate[1][3] < 10){
+                    $bidLength = $bidLength." "."0".$productDate[1][3];
+                }
+                else{
+                    $bidLength = $bidLength." ".$productDate[1][3];
+                }
+                if($productDate[1][4] < 10){
+                    $bidLength = $bidLength.":"."0".$productDate[1][4];
+                }
+                else{
+                    $bidLength = $bidLength.":".$productDate[1][4];
+                }
+                if($productDate[1][5] < 10){
+                    $bidLength = $bidLength.":"."0".$productDate[1][5];
+                }
+                else{
+                    $bidLength = $bidLength.":".$productDate[1][5];
+                }
+                echo $bidLength;
+                $sql = "INSERT INTO bidding (product_name, product_num, product_img, product_text, product_label, product_new_rate, product_info, seller_id, raise, price, product_state, bid_length) VALUES('" . $productName . "','" . $productNum . "','" . $productImg . "','" . $productText . "','" . $productLabel . "','" . $productNewRate . "','" . $productInfo . "','" . $_SESSION["userId"] . "','" . $productRaise . "','"  . $productCost . "','" . 0 . "','"  . $bidLength ."');";
+                $result = $conn->query($sql);
+                
+            }
             if ($result === TRUE) {
                 $outputData["state"] = 200;
                 $outputData["message"] = "create success";
