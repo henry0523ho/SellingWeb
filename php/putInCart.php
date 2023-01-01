@@ -4,7 +4,6 @@ $inputData = $_POST;
 $outputData = array();
 try{
     $purchaseNum=$_POST["purchaseNum"];
-    $purchaseState=$_POST["purchaseState"];
     $productId=$_POST["productId"];
     session_start();
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -15,10 +14,10 @@ try{
         $result = $conn->query($sql);
         if($row = $result->fetch_assoc())
         {
-            if($row["purchase_state"] == $purchaseState)
+            if($row["purchase_state"] == "InCart")
             {
                 $sql = "UPDATE purchase 
-                        SET purchase_Num='". $purchaseNum ."',purchase_State='". $purchaseState ."',product_id='". $productId ."'
+                        SET purchase_Num='". $purchaseNum ."',purchase_State='InCart',product_id='". $productId ."'
                         WHERE product_id='" . $productId . "'
                         AND user_id='". $_SESSION["userId"] ."';";
                 $result = $conn->query($sql);
@@ -35,7 +34,7 @@ try{
         }
         else
         {
-            $sql = "INSERT INTO purchase(purchase_Num, purchase_State, product_Id,user_id) VALUES('". $purchaseNum ."','". $purchaseState ."','". $productId ."','". $_SESSION["userId"] ."');";
+            $sql = "INSERT INTO purchase(purchase_Num, purchase_State, product_Id,user_id) VALUES('". $purchaseNum ."','InCart','". $productId ."','". $_SESSION["userId"] ."');";
             $result = $conn->query($sql);
             if($result === TRUE){
                 $outputData["state"] = 200;

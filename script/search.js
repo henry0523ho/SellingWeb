@@ -1,31 +1,31 @@
-$(document).ready(function(){
-    $("#searchBtn").click(function(){
+$(document).ready(function() {
+    $("#searchBtn").click(function() {
         console.log("search");
-        
+
     })
 })
 
-function search(){
+function search() {
     console.log("search");
     let parent = document.getElementById("showProduct");
-        let divs = document.getElementsByClassName("col-md-4 text-center animate-box fadeInUp animated-fast");
-        let num = divs.length;
-        //let name = $("#searchText").val();
-        let name = document.getElementById("searchText").value;
-        console.log(name);
-        $.ajax({
-            url : "http://localhost/workSpace/SellingWeb/php/search.php",
-            type : "POST",
-            data : {"name" : name},
+    let divs = document.getElementsByClassName("col-md-4 text-center animate-box fadeInUp animated-fast");
+    let num = divs.length;
+    //let name = $("#searchText").val();
+    let name = document.getElementById("searchText").value;
+    console.log(name);
+    $.ajax({
+            url: "php/search.php",
+            type: "POST",
+            data: { "name": name },
         })
-        .done(function(result){
+        .done(function(result) {
             let objs = JSON.parse(result);
             if (objs.state != 200) {
                 console.log("fetch showProduct.php failed");
                 console.log(objs.state + ' ' + objs.message);
                 return;
             }
-            for(i = 0; i < num; i++){
+            for (i = 0; i < num; i++) {
                 parent.removeChild(divs[0]);
             }
             for (let i = 0; i < objs.data.length; i++) {
@@ -34,7 +34,7 @@ function search(){
                     divRow.setAttribute("class", "row");
                     document.getElementById("display").appendChild(divRow);
                 }
-                
+
                 let objContext = objs.data[i];
 
                 let div01 = document.createElement("div");

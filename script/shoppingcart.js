@@ -4,6 +4,9 @@ $(document).ready(function(){
     $("#order").click(function(){
         orderBtnClick();
     })
+    $("#continue").click(function(){
+        $(location).attr("href","index.html")
+    })
 })
 function getCart(){
     $.ajax({
@@ -17,7 +20,7 @@ function getCart(){
 }
 
 function showCart(result){
-    console.log(result.data.length  );
+    console.log(result.data.length);
     for(let i=0;i<result.data.length;i++){
         
         //console.log(product);
@@ -25,7 +28,7 @@ function showCart(result){
             $("<tr></tr>")
             .attr("id","productInCart-"+result.data[i].purchase_id)
             .append(
-                $("<td></td>")
+                $('<td class="cart_check"></td>')
                 .append(
                     $("<input>")
                     .attr("name","user_active_col[]")
@@ -34,29 +37,29 @@ function showCart(result){
                 )
             )
             .append(
-                $("<td></td>")
+                $('<td class="cart_img"></td>')
                 .append(
-                    $("<img>")
+                    $('<img>')
                     .attr("id","productImg-"+result.data[i].purchase_id)
 
                 )
 
             )
             .append(
-                $("<td></td>")
+                $('<td class="cart_name"></td>')
                 .attr("id","productName-"+result.data[i].purchase_id)
             )
             .append(
-                $("<td></td>")
+                $('<td class="cart_num"></td>')
                 .attr("id","productNum-"+result.data[i].purchase_id)
                 .html(result.data[i].purchase_num)
             )
             .append(
-                $("<td></td>")
+                $('<td class="cart_price"></td>')
                 .attr("id","productPrice-"+result.data[i].purchase_id)
             )
             .append(
-                $("<td></td>")
+                $('<td class="cart_del"></td>')
                 .append(
                     $("<button></button>")
                     .attr("id","remove-"+result.data[i].purchase_id)
@@ -100,8 +103,10 @@ function removePurchase(purchaseId){
     })
 }
 function orderBtnClick(){
+    var checkedNum=0;
     $("input[name='user_active_col[]']").each(function() {
         if($(this).prop("checked")){
+            checkedNum++;
             console.log($(this).attr("id"));
             $.ajax({
                 url: "php/cartToOrdering.php",
@@ -114,5 +119,10 @@ function orderBtnClick(){
             })
         }
     });
-    //location.reload();
+    if(checkedNum==0){
+        alert("請先勾選再下單")
+    }
+    else{
+        $(location).attr("href","takeorder_1.html")
+    }
 }

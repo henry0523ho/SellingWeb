@@ -1,6 +1,12 @@
 $(document).ready(function(){
     check();
     getOrdering();
+    $("#keepshopping").click(function(){
+        keepShoppingBtn();
+    })
+    $("#pay").click(function(){
+        $(location).attr("href","takeorder_2.html")
+    })
 })
 
 function getOrdering(){
@@ -65,4 +71,27 @@ function getProduct(productId,num){
         .html(num*objs.data[0].product_cost)
 
     })
+}
+function keepShoppingBtn(){
+    $.ajax({
+        url: "php/getOrdering.php",
+        type: "GET"
+    })
+    .done(function(result){
+        let objs=JSON.parse(result);
+        orderingToCart(objs);
+    })
+}
+function orderingToCart(reslut){
+    for(let i=0;i<reslut.data.length;i++){
+        $.ajax({
+            url: "php/orderingToCart.php",
+            type: "POST",
+            data: {"purchaseId": reslut.data[i].purchase_id}
+        })
+        .done(function(res){
+            console.log(JSON.parse(res));
+        })
+    }
+    $(location).attr("href","index.html")
 }

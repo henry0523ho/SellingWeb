@@ -1,8 +1,7 @@
 <?php
 require_once "conn.php";
 $outputData = array();
-// $url = "https://sellingwebchen3ho5yang12.000webhostapp.com/";
-$url= "http://localhost/workSpace/SellingWeb/";
+$url= $rootUrl;
 try{
     if(isset($_POST['userId'])){
         $sql="SELECT user_email,auth FROM user WHERE user_id='".$_POST['userId']."';";

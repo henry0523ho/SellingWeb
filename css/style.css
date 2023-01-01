@@ -5,6 +5,9 @@
   font-weight: normal;
   font-style: normal;
 }
+#cart_product_num{
+  background-color: rgba(1, 6, 101, 0.584);
+}
 /* =======================================================
 *
 * 	Template Style 
