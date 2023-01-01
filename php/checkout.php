@@ -25,4 +25,5 @@ $obj = [
 array_push($outputData, $obj);
 $outputData = json_encode($outputData);
 echo $outputData;
+$conn->close();
 ?>

@@ -61,3 +61,4 @@ try{
 }
 echo json_encode($outputData);
 
+$conn->close();

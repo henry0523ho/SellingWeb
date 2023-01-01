@@ -12,3 +12,4 @@ try{
 }catch(Exception $e){
     echo "發生錯誤";
 }
+$conn->close();

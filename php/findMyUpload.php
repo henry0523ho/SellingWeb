@@ -20,4 +20,5 @@ while($row = mysqli_fetch_assoc($result)){
 }
 $outputJSON = json_encode($outputData);
 echo $outputJSON;
+$conn->close();
 ?>
