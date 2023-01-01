@@ -8,7 +8,7 @@ try{
         $result=$conn->query($sql);
         if($row=$result->fetch_assoc()){
             $userEmail = $row['user_email'];
-            if($row['auth']!="OK"){
+            //if($row['auth']!="OK"){
                 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                 $auth = '';
                 for ($i = 0; $i < 32; $i++) {
@@ -40,10 +40,10 @@ try{
                     $outputData['state'] = 500;
                     $outputData['message'] = "sql error";
                 }
-            }else{
-                $outputData['state']=302;
-                $outputData['message'] = "already auth";
-            }
+            //}else{
+                //$outputData['state']=302;
+                //$outputData['message'] = "already auth";
+            //}
         }else{
             $outputData['state']=404;
             $outputData['message']="no user";
