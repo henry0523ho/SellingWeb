@@ -4,28 +4,12 @@ $(document).ready(function(){
         if(window.confirm("確認?")== true)
         {
             getSeller();
-            $(location).attr("href","index.html");
+            //$(location).attr("href","index.html");
             alert("已下單");
         }       
     })  
 })
 
-function getSeller(){
-    $.ajax({
-        url: "php/getpurchase.php",
-        type: "GET"
-    })
-    .done(function(reslut){
-        let objs=JSON.parse(reslut);
-        sendInfoMail(objs)
-    })
-}
-
-function sendInfoMail(reslut){   
-    for(let i=0;i<reslut.data.length;i++){       
-        sendinformMail(reslut.data[i].seller_id, func)    
-    }
-}
 
 var Email = {
     send: function(a) {
@@ -68,12 +52,31 @@ function sendMail(to, subject, body, func) {
     );
 }
 
+function getSeller(){
+    $.ajax({
+        url: "php/getpurchase.php",
+        type: "GET"
+    })
+    .done(function(reslut){
+        let objs=JSON.parse(reslut);
+        sendInfoMail(objs)
+    })
+}
 
-function sendinformMail(userId, func) {
+function sendInfoMail(reslut){   
+    console.log(reslut.data)
+    for(let i=0;i<reslut.data.length;i++){       
+        console.log(reslut.data[i].seller_id)
+        sendinformMail(reslut.data[i].seller_id, func)    
+    }
+}
+
+
+function sendinformMail(seller_id, func) {
     $.ajax({
         url: "php/sendmail.php",
         type: "POST",
-        data: { userId: userId },
+        data: { seller_id: seller_id },
         success: function(res) {
             data = JSON.parse(res);
             if (data.state == 200) {

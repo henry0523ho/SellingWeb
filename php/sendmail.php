@@ -2,8 +2,8 @@
 require_once "conn.php";
 $outputData = array();
 try{
-    if(isset($_POST['userId'])){
-        $sql="SELECT * FROM purchase WHERE user_id='". $_SESSION["userId"] ."'AND purchase_state='Ordering';";
+    if(isset($_POST['seller_id'])){
+        /*$sql="SELECT * FROM purchase WHERE user_id='". $_SESSION["userId"] ."'AND purchase_state='Ordering';";
         if($row=$result->fetch_assoc()){
             $userEmail = $row['user_email'];
             if($row['purchase_state']!="Finish"){
@@ -44,7 +44,7 @@ try{
         }
 
 
-        
+        */$outputData['state'] = 200;
     }else{
         $outputData['state'] = 406;
         $outputData['message'] = "key value not set";
