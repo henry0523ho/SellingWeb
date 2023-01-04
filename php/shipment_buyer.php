@@ -7,7 +7,7 @@ try{
     session_start();
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
     {
-        $sql="SELECT * FROM purchase join product using(product_id) WHERE user_id='". $_SESSION["userId"] ."'AND purchase_state<>'InCart';";
+        $sql="SELECT * FROM purchase join product using(product_id) WHERE user_id='". $_SESSION["userId"] ."'AND purchase_state<>'InCart'AND purchase_state<>'Ordering';";
         $result=$conn->query($sql);
         $outputData['data']=array();
         while($row=$result->fetch_assoc())

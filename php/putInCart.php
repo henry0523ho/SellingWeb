@@ -30,6 +30,16 @@ try{
                 {
                     throw new Exception("MySQL is broken.");
                 }
+            }else{
+                $sql = "INSERT INTO purchase(purchase_Num, purchase_State, product_Id,user_id) VALUES('". $purchaseNum ."','InCart','". $productId ."','". $_SESSION["userId"] ."');";
+                $result = $conn->query($sql);
+                if($result === TRUE){
+                    $outputData["state"] = 200;
+                    $outputData["message"] = "put in cart success";
+                }
+                else{
+                    throw new Exception("MySQL is broken.");
+                }
             }
         }
         else

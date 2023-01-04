@@ -1,6 +1,9 @@
 $(document).ready(function(){
     getSeller();
     getBuyer();
+    $("#reload").click(function(){
+        location.reload();
+    })
 })
 
 function getSeller(){
@@ -39,13 +42,13 @@ function changeState(state, id){
     });
 }
 function setClick(nowState, state, id){
-    if(state == 'ship'){
-        if(nowState == "Ordering"){
+    if(state == '已出貨'){
+        if(nowState == "Buying"){
             changeState(state, id);
         } 
     } 
-    else if(state == 'take'){
-        if(nowState == "ship"){
+    else if(state == '已收貨'){
+        if(nowState == "已出貨"){
             changeState(state, id);
         }
     } 
@@ -78,7 +81,7 @@ function show(who, result){
                     .attr("class", "state")
                     .attr("type", "text")
                     .attr("disabled", true)
-                    .val(result.data[i].purchase_state)
+                    .val(result.data[i].purchase_state=="Buying"?"未出貨":result.data[i].purchase_state)
                 )
             )
             .append(
@@ -91,11 +94,11 @@ function show(who, result){
                     
                     .click((who=="seller-shipment"?(
                         function(){
-                            setClick(result.data[i].purchase_state, "ship", result.data[i].purchase_id)
+                            setClick(result.data[i].purchase_state, "已出貨", result.data[i].purchase_id)
                         }
                     ):(
                         function(){
-                            setClick(result.data[i].purchase_state, "take", result.data[i].purchase_id)
+                            setClick(result.data[i].purchase_state, "已收貨", result.data[i].purchase_id)
 
                         }
                     ))
