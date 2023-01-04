@@ -5,7 +5,6 @@ $(document).ready(function(){
         {
             getBuying();
             getSeller();
-            $(location).attr("href","shipment.html");
             alert("已下單");
         }       
     })  
@@ -29,6 +28,7 @@ function sendInfoMail(reslut){
         console.log(reslut.data[i].seller_id)
         sendinformMail(reslut.data[i].seller_id,function(){})    
     }
+    $(location).attr("href","shipment.html");
 }
 function getBuying(){
     $.ajax({
