@@ -57,7 +57,10 @@ try{
                     $bidLength = $bidLength.":".$productDate[1][5];
                 }
                 echo $bidLength;
-                $sql = "INSERT INTO bidding (product_name, product_num, product_img, product_text, product_label, product_new_rate, product_info, seller_id, raise, price, `state`, bid_length) VALUES('" . $productName . "','" . $productNum . "','" . $productImg . "','" . $productText . "','" . $productLabel . "','" . $productNewRate . "','" . $productInfo . "','" . $_SESSION["userId"] . "','" . $productRaise . "','"  . $productCost . "','" . 0 . "','"  . $bidLength ."');";
+                $sql = "INSERT INTO product (product_name, product_num, product_img, product_text, product_label, product_new_rate, product_info, product_cost, seller_id) VALUES('" . $productName . "','" . $productNum . "','" . $productImg . "','" . $productText . "','" . $productLabel . "','" . $productNewRate . "','" . $productInfo . "','" . $productCost. "','" . $_SESSION["userId"]   ."');";
+                $result = $conn->query($sql);
+                $productId = $conn->insert_id;
+                $sql = "INSERT INTO bidding (raise, price, `state`, bid_length, product_id ) VALUES('" . $productRaise . "','"  . $productCost . "','" . 0 . "','"  . $bidLength . "','" . $productId ."');";
                 $result = $conn->query($sql);
             }
             if ($result === TRUE) {
