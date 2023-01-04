@@ -25,7 +25,7 @@ function search() {
                 console.log(objs.state + ' ' + objs.message);
                 return;
             }
-            for (i = 0; i < num; i++) {
+            for (let i = 0; i < num; i++) {
                 parent.removeChild(divs[0]);
             }
             for (let i = 0; i < objs.data.length; i++) {
