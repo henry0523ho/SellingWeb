@@ -36,4 +36,5 @@ $outputData['state'] =500;
 $outputData['message'] =$e->getMessage();
 }
 echo json_encode($outputData);
+$conn->close();
 ?>
