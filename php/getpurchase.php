@@ -5,7 +5,7 @@ try{
     session_start();
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
     {
-        $sql="SELECT * FROM purchase NATURAL JOIN product WHERE user_id='". $_SESSION["userId"] ."'AND purchase_state='Ordering';";
+        $sql="SELECT * FROM purchase NATURAL JOIN product WHERE user_id='". $_SESSION["userId"] ."'AND purchase_state='Buying';";
         $result=$conn->query($sql);
         $outputData['data']=array();
         while($row=$result->fetch_assoc())

@@ -4,8 +4,10 @@ $(document).ready(function(){
         if(window.confirm("確認?")== true)
         {
             getSeller();
-            //$(location).attr("href","index.html");
+            buyingToShipment();
+            getBuying();          
             alert("已下單");
+           $(location).attr("href","shipment.html");
         }       
     })  
 })
