@@ -8,6 +8,7 @@ try{
     $result=$conn->query($sql);
     if($row=$result->fetch_assoc()){
         $userEmail = $row['user_email'];
+        $username = $row['user_name'];
         $body = '   <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -18,7 +19,8 @@ try{
         </head>
         <body>
             <div style="width: 100vh;text-align: center;">
-                你有一筆新的訂單。               
+                你有一筆新的訂單 '.$username.' 請盡快完成訂單<br>
+                
             </div>
         </body>
         </html>';
