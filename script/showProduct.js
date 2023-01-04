@@ -96,7 +96,7 @@ function showAllProduct(opt, filter) {
                 a01.appendChild(i01);
 
                 let a02 = document.createElement("a");
-                a02.href = "fixed_page.html?" + objContext.id;
+                a02.href = (objContext.isBidding?"fixed_page.html?":"bidding_page.html?") + objContext.id;
                 a02.setAttribute("id", "show")
                 a02.setAttribute("class", "icon");
                 a02.setAttribute("target", "_blank")
@@ -109,7 +109,7 @@ function showAllProduct(opt, filter) {
                 let h301 = document.createElement("h3");
 
                 let a03 = document.createElement("a");
-                a03.href = "fixed_page.html?" + objContext.id;
+                a03.href = (objContext.isBidding?"fixed_page.html?":"bidding_page.html?") + objContext.id;
                 a03.appendChild(document.createTextNode(objContext.name));
                 a03.setAttribute("id", "show")
                 a03.setAttribute("target", "_blank")

@@ -3,12 +3,12 @@ require_once 'conn.php';
 $data=$_POST;
 $outputData = array();
 try{
-    $order = $data["order"];
-    $fiter = $data["filter"];
+    $order = $_POST["order"];
+    $fiter = $_POST["filter"];
 
     $order_arr = explode("-", $order);
-    if($fiter == "undefined") $sql = "SELECT * FROM product ORDER BY $order_arr[0] $order_arr[1];";
-    else $sql = "SELECT * FROM product WHERE product_label = '$fiter' ORDER BY $order_arr[0] $order_arr[1];";
+    if($fiter == "undefined") $sql = "SELECT * FROM product LEFT OUTER JOIN bidding USING(product_id) ORDER BY $order_arr[0] $order_arr[1];";
+    else $sql = "SELECT * FROM product LEFT OUTER JOIN bidding USING(product_id) WHERE product_label = '$fiter' ORDER BY $order_arr[0] $order_arr[1];";
     
     $result = $conn->query($sql);
     $outputData['data']=array();
@@ -18,6 +18,7 @@ try{
             'url' => $row['product_img'],
             'name' => $row['product_name'],
             'price' => $row['product_cost'],
+            'isBidding'=> ($row['bidding_id']==NULL?1:0)
         ];
         array_push($outputData['data'], $obj);
     }
