@@ -3,8 +3,9 @@ $(document).ready(function(){
     $("#finish").click(function(){
         if(window.confirm("確認?")== true)
         {
+            getBuying();
             getSeller();
-            //$(location).attr("href","index.html");
+            $(location).attr("href","shipment.html");
             alert("已下單");
         }       
     })  
@@ -29,4 +30,28 @@ function sendInfoMail(reslut){
         sendinformMail(reslut.data[i].seller_id,function(){})    
     }
 }
-
+function getBuying(){
+    $.ajax({
+        url: "php/getBuying.php",
+        type: "GET"
+    })
+    .done(function(reslut){
+        let objs=JSON.parse(reslut);
+        setPayment(objs);
+    })
+}
+function setPayment(reslut){
+    for(let i=0;i<reslut.data.length;i++){
+        $.ajax({
+            url: "php/setPayment.php",
+            type: "POSt",
+            data: {
+                "payment": $("#payment").val(),
+                "purchaseId": reslut.data[i].purchase_id
+            }
+        })
+        .done(function(res){
+            console.log(JSON.parse(res));
+        })
+    }
+}
