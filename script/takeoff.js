@@ -1,16 +1,19 @@
 $(document).ready(function() {
     grabProductName();
     $("#update").click(function() {
-        $.ajax({
-                url: 'php/delProduct.php',
-                type: "POST",
-                data: { "productId": $('input[name=cancel]:checked').val() },
-            })
-            .done(function(data) {
-
-            })
+        delProduct();
     })
 })
+function delProduct(){
+    $.ajax({
+        url: 'php/delProduct.php',
+        type: "POST",
+        data: { "productId": $('input[name=cancel]:checked').val() },
+    })
+    .done(function(data) {
+
+    })
+}
 
 function reload() {
     location.reload();
