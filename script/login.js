@@ -36,6 +36,7 @@ function login(userName, userPwd) {
 function register(userName, userEmail, userPwd, checkPassword, realName, phone) {
     if (userName == "" || userEmail == "" || userPwd == "" || checkPassword == "" || realName == "") {
         alert("欄位不可為空");
+        return;
     }
     if (userPwd == checkPassword) {
         $.ajax({
