@@ -4,7 +4,7 @@ $data=$_POST;
 $outputData = array();
 try{
     $userId = $data["userId"];    
-    $sql="SELECT * FROM user WHERE user_name='".$userId."';";
+    $sql="SELECT * FROM user WHERE user_id='".$userId."';";
     $result=$conn->query($sql);
     if($row=$result->fetch_assoc()){
         $userEmail = $row['user_email'];
@@ -18,7 +18,7 @@ try{
         </head>
         <body>
             <div style="width: 100vh;text-align: center;">
-                                        
+                你有一筆新的訂單。               
             </div>
         </body>
         </html>';
@@ -36,4 +36,4 @@ $outputData['state'] =500;
 $outputData['message'] =$e->getMessage();
 }
 echo json_encode($outputData);
-
+?>

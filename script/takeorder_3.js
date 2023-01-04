@@ -4,7 +4,7 @@ $(document).ready(function(){
         if(window.confirm("確認?")== true)
         {
             getSeller();
-            //$(location).attr("href","index.html");
+            $(location).attr("href","index.html");
             alert("已下單");
         }       
     })  
@@ -37,19 +37,14 @@ var Email = {
 };
 
 
-function sendMail(to, subject, body, func) {
+function sendMail(to, subject, body) {
     Email.send({
         SecureToken: "d24dc5d9-4bad-488c-b636-bc372c91e63a",
         To: to,
         From: "chen3ho5yang12@gmail.com",
         Subject: subject,
         Body: body
-    }).then(
-        function(message) {
-            console.log(message);
-            func();
-        }
-    );
+    })
 }
 
 function getSeller(){
@@ -59,6 +54,7 @@ function getSeller(){
     })
     .done(function(reslut){
         let objs=JSON.parse(reslut);
+        console.log(objs)
         sendInfoMail(objs)
     })
 }
@@ -67,20 +63,20 @@ function sendInfoMail(reslut){
     console.log(reslut.data)
     for(let i=0;i<reslut.data.length;i++){       
         console.log(reslut.data[i].seller_id)
-        sendinformMail(reslut.data[i].seller_id,func)    
+        sendinformMail(reslut.data[i].seller_id)    
     }
 }
 
-
-function sendinformMail(userId,func) {
+function sendinformMail(userId) {
     $.ajax({
-        url: "php/sendmail.php",
+        url: "php/sendsellermail.php",
         type: "POST",
         data: { userId: userId },
         success: function(res) {
             data = JSON.parse(res);
+            console.log(data);
             if (data.state == 200) {
-                sendMail(data.Email, data.subject, data.body, func);
+                sendMail(data.Email, data.subject, data.body);
             }
         }
     })
