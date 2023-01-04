@@ -7,6 +7,7 @@ $(document).ready(function(){
             getBuying();
             getSeller();
             alert("已下單");
+            $(location).attr("href","shipment.html");
         }       
     })  
 })
