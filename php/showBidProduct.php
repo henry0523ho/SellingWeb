@@ -4,7 +4,7 @@ $data=$_POST;
 $outputData = array();
 try{
     $productId = $_POST["id"];
-    $sql = "SELECT * FROM bidding WHERE product_id = '" . $productId . "';";
+    $sql = "SELECT * FROM bidding JOIN product USING(product_id) WHERE product_id = '" . $productId . "';";
     $result = $conn->query($sql);
     if($row = $result->fetch_assoc()){
         $outputData['data']= [
