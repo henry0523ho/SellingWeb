@@ -34,6 +34,10 @@ function login(userName, userPwd) {
 }
 
 function register(userName, userEmail, userPwd, checkPassword, realName, phone) {
+    if (userName == "" || userEmail == "" || userPwd == "" || checkPassword == "" || realName == "" || phone == "") {
+        alert("欄位不可為空");
+        return;
+    }
     if (userPwd == checkPassword) {
         $.ajax({
             url: 'php/register.php',
