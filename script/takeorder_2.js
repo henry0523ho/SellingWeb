@@ -5,6 +5,8 @@ $(document).ready(function(){
         $(location).attr("href","takeorder_1.html")
     })
     $("#next").click(function(){
+        getOrdering();
+        getDistinctSeller()
         $(location).attr("href","takeorder_3.html")
     })
 })
@@ -45,9 +47,10 @@ function drawTable(reslut){
                             $('<div class="choose_radio"></div>')
                             .append(
                                 $("<input>")
-                                .attr("id","facetoface")
+                                .attr("id","facetoface-"+reslut.data[i].seller_id)
                                 .attr("type","radio")
-                                .attr("name","method")
+                                .attr("value","面交")
+                                .attr("name","method-"+reslut.data[i].seller_id)
                             )
                             .append(
                                 $("<label></label>")
@@ -60,9 +63,10 @@ function drawTable(reslut){
                             $('<div class="choose_radio"></div>')
                             .append(
                                 $("<input>")
-                                .attr("id","711")
+                                .attr("id","711-"+reslut.data[i].seller_id)
                                 .attr("type","radio")
-                                .attr("name","method")
+                                .attr("value","711")
+                                .attr("name","method-"+reslut.data[i].seller_id)
                             )
                             .append(
                                 $("<label></label>")
@@ -74,9 +78,10 @@ function drawTable(reslut){
                             $('<div class="choose_radio"></div>')
                             .append(
                                 $("<input>")
-                                .attr("id","fami")
+                                .attr("id","fami-"+reslut.data[i].seller_id)
                                 .attr("type","radio")
-                                .attr("name","method")
+                                .attr("value","711")
+                                .attr("name","method-"+reslut.data[i].seller_id)
                             )
                             .append(
                                 $("<label></label>")
@@ -178,4 +183,65 @@ function innerSellerName(reslut,sellerId){
         $("<p></p>")
         .html(reslut.data[0].real_name)
     )
+}
+function orderingToBuying(reslut){
+    for(let i=0;i<reslut.data.length;i++){
+        $.ajax({
+            url: "php/orderingToBuying.php",
+            type: "POST",
+            data: {"purchaseId": reslut.data[i].purchase_id}
+        })
+        .done(function(reslut){
+            console.log(reslut)
+        })
+    }
+}
+function getOrdering(){
+    $.ajax({
+        url: "php/getOrdering.php",
+        type: "GET"
+    })
+    .done(function(reslut){
+        let obj=JSON.parse(reslut);
+        orderingToBuying(obj)
+    })
+}
+function setDelivery(reslut){
+    for(let i=0;i<reslut.data.length;i++){
+        innerDelivery(reslut.data[i].seller_id);
+    }
+}
+function innerDelivery(sellerId){
+    $.ajax({
+        url: "php/getInfoToOrdering.php",
+        type: "POST",
+        data: {"sellerId": sellerId}
+    })
+    .done(function(reslut){
+        let objs=JSON.parse(reslut);
+        for(let i=0;i<objs.data.length;i++){
+            $.ajax({
+                url: "php/setDelivery.php",
+                type: "POST",
+                data: {
+                    "purchaseId": objs.data[i].purchase_id,
+                    "delivery": $('input:radio[name="method-'+objs.data[i].seller_id+'"]:checked').val()+"("+$("#pickupAddress-"+objs.data[i].seller_id).val()+")"
+                }
+            })
+            .done(function(res){
+                let data=JSON.parse(res);
+                console.log(data);
+            })
+        }
+    })
+}
+function getDistinctSeller(){
+    $.ajax({
+        url: "php/getDistinctSeller.php",
+        type: "GET"
+    })
+    .done(function(reslut){
+        let objs=JSON.parse(reslut);
+        setDelivery(objs);
+    })
 }
