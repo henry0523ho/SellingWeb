@@ -38,17 +38,29 @@ function getSeller(){
     .done(function(reslut){
         let objs=JSON.parse(reslut);
         console.log(objs)
-        sendInfoMail(objs)
+        for(let i=0;i<objs.data.length;i++){
+            $.ajax({
+                url: "php/getProduct.php",
+                type: "POST",
+                data: {"productId": objs.data[i].product_id}
+            })
+            .done(function(res){
+                let obj=JSON.parse(res);
+                sendinformMail(obj.data[i].seller_id,function(){})  
+            })
+        }
+        
+        
     })
 }
-function sendInfoMail(reslut){   
-    console.log(reslut.data)
-    for(let i=0;i<reslut.data.length;i++){       
-        console.log(reslut.data[i].seller_id)
-        sendinformMail(reslut.data[i].seller_id,function(){})    
-    }
-    // $(location).attr("href","shipment.html");
-}
+// function sendInfoMail(reslut){   
+//     console.log(reslut.data)
+//     for(let i=0;i<reslut.data.length;i++){       
+//         console.log(reslut.data[i].seller_id)
+          
+//     }
+//     // $(location).attr("href","shipment.html");
+// }
 function getBuying(){
     $.ajax({
         url: "php/getBuying.php",
