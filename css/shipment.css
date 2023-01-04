@@ -1,4 +1,4 @@
-#shipment , #cart, #buy{
+.shipment , #cart, #buy{
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -7,21 +7,21 @@
     background-color: #f2f2f2;
 }
   
-#shipment td, #shipment th ,#cart td, #cart th, #buy td, #buy th{
+.shipment td, .shipment th ,#cart td, #cart th, #buy td, #buy th{
     min-height: 25px;
     border: 3px solid white;
     padding: 8px;
 }
 
-#shipment tr:nth-child(odd){background-color: rgb(244, 249, 253);}
-#shipment tr:hover {background-color: rgb(233, 231, 231);}
+.shipment tr:nth-child(odd){background-color: rgb(244, 249, 253);}
+.shipment tr:hover {background-color: rgb(233, 231, 231);}
 #cart tr:nth-child(odd){background-color: rgb(244, 249, 253);}
 
 #cart tr:hover {background-color: rgb(233, 231, 231);}
 #buy tr:nth-child(odd){background-color: rgb(244, 249, 253);}
 #buy tr:hover {background-color: rgb(233, 231, 231);}
 
-#shipment th , #cart th, #buy th{
+.shipment th , #cart th, #buy th{
     min-height: 25px;
     padding-top: 12px;
     padding-bottom: 12px;

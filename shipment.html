@@ -35,7 +35,8 @@
 	<link rel="stylesheet" href="css/login.css">
 
     <script src="script/index.js"></script>   
-    <link rel="stylesheet" href="css/shipment.css"> 
+    <script src="script/shipment.js"></script>   
+	<link rel="stylesheet" href="css/shipment.css"> 
         
 </head>
 
@@ -122,51 +123,49 @@
 
 
 				<div class="col-md-9 animate-box">
-                    <h2 id="title">賣家出貨／買家取貨</h2>
-                    <table id ="shipment" style="margin-right: 0px;">
+                    <h2 id="title">賣家出貨</h2>
+                    <table class = "shipment" style="margin-right: 0px;">
                         <tr>
-                            <th>購買日期</th>
                             <th>訂單編號</th>
+                            <th>取貨方式</th>
                             <th>付款方式</th>
                             <th>應付金額</th>
                             <th>處理進度</th>
+							<th></th>
                         </tr>
+						<tbody id ="seller-shipment">
+							<!-- <tr>
+								<td>Ex. 11-24-2022</td>
+								<td>Ex. 0001</td>
+								<td>Ex. 面交</td>
+								<td>Ex. $150</td>
+								<td> <input class="state" name="" type="text" value="" disabled="false"> </td>
+								<td> <button class="btn" style="background-color: rgb(233, 242, 250)" id="ship">已出貨</button> </td>
+							</tr> -->
+						</tbody>                       
+                    </table>
+
+					<br><br>
+					<h2 id="title">買家取貨</h2>
+                    <table class = "shipment" id ="" style="margin-right: 0px;">
                         <tr>
-                            <td>Ex. 11-24-2022</td>
-                            <td>Ex. 0001</td>
-                            <td>Ex. 面交</td>
-                            <td>Ex. $150</td>
-                            <td><select id="productStatus" name="productStatus" style="padding: 5px;">
-                                <option value="ready">準備中</option>
-                                <option value="ship">訂單已出貨</option>
-                                <option value="pickup">可取貨</option>
-                                <option value="finish">訂單已完成</option>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Ex. 11-24-2022</td>
-                            <td>Ex. 0010</td>
-                            <td>Ex. 全家</td>
-                            <td>Ex. $250</td>
-                            <td><select id="productStatus" name="productStatus" style="padding: 5px;">
-                                <option value="ready">準備中</option>
-                                <option value="ship">訂單已出貨</option>
-                                <option value="pickup">可取貨</option>
-                                <option value="finish">訂單已完成</option>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Ex. 11-24-2022</td>
-                            <td>Ex. 0100</td>
-                            <td>Ex. 7-Eleven</td>
-                            <td>Ex. $300</td>
-                            <td><select id="productStatus" name="productStatus" style="padding: 5px;">
-                                <option value="ready">準備中</option>
-                                <option value="ship">訂單已出貨</option>
-                                <option value="pickup">可取貨</option>
-                                <option value="finish">訂單已完成</option>
-                            </td>
-                        </tr>
+                            <th>訂單編號</th>
+                            <th>取貨方式</th>
+                            <th>付款方式</th>
+                            <th>應付金額</th>
+                            <th>處理進度</th>
+                            <th></th>
+						</tr>
+                        <tbody id="buyer-shipment">
+							<!-- <tr>
+								<td>Ex. 11-24-2022</td>
+								<td>Ex. 0001</td>
+								<td>Ex. 面交</td>
+								<td>Ex. $150</td>
+								<td> <input class="state" name="" type="text" value="" disabled="false"> </td>
+								<td> <button class="btn" style="background-color: rgb(233, 242, 250)" id="ship">已取貨</button> </td>
+							</tr> -->
+						</tbody>
                     </table>
 				
                     <!--<div style="padding-top: 50px; padding-left: 10px; margin: auto; width: 10%;">
