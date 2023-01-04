@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-01-04 03:13:03
+-- 產生時間： 2023-01-04 11:39:29
 -- 伺服器版本： 10.4.25-MariaDB
 -- PHP 版本： 8.1.10
 
@@ -290,7 +290,7 @@ CREATE DEFINER=`root`@`localhost` EVENT `check_bidding` ON SCHEDULE EVERY 1 SECO
         (user_id, product_id)
         select user_id, product_id
         FROM `bidding`
-        where state = '1' AND TIMEDIFF(NOW(), bid_length) >= TIME_FORMAT('00:00:00', '%H:%i:%s');
+        where product_state = '1' AND TIMEDIFF(NOW(), bid_length) >= TIME_FORMAT('00:00:00', '%H:%i:%s');
 
         UPDATE `purchase` 
         SET purchase_num = '1', purchase_state = 'inCart' 
