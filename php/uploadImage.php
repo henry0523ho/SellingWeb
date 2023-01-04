@@ -16,7 +16,7 @@ try {
         $dest = '../upload/' . $randstring;
         move_uploaded_file($file, $dest);
         $url = $rootUrl;
-        $filePath = $url . $randstring;
+        $filePath = $url."upload/" . $randstring;
         $outputData['url'] = $filePath;
         $outputData['state'] = 200;
         $outputData['message'] = "OK";
