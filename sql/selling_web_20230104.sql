@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-01-04 11:39:29
+-- 產生時間： 2023-01-04 11:50:41
 -- 伺服器版本： 10.4.25-MariaDB
 -- PHP 版本： 8.1.10
 
@@ -40,7 +40,7 @@ CREATE TABLE `bidding` (
   `product_postdate` datetime NOT NULL DEFAULT current_timestamp(),
   `raise` int(11) NOT NULL,
   `price` int(11) NOT NULL,
-  `product_state` tinyint(1) NOT NULL DEFAULT 1,
+  `state` tinyint(1) NOT NULL DEFAULT 1,
   `user_id` int(11) DEFAULT NULL,
   `bid_length` datetime NOT NULL,
   `start_bidding` datetime NOT NULL DEFAULT current_timestamp()
@@ -50,9 +50,9 @@ CREATE TABLE `bidding` (
 -- 傾印資料表的資料 `bidding`
 --
 
-INSERT INTO `bidding` (`product_id`, `product_name`, `product_num`, `product_img`, `product_text`, `product_label`, `product_new_rate`, `product_info`, `seller_id`, `product_postdate`, `raise`, `price`, `product_state`, `user_id`, `bid_length`, `start_bidding`) VALUES
-(4, '手機', 1, 'https://i.imgur.com/OS3lebp.png', '手機', '3C', 2, '手機', 8, '2022-12-15 00:12:38', 10, 220, 0, 11, '2022-12-15 17:34:00', '2022-12-15 17:24:00'),
-(5, '333', 33, '', '33', 'Book', 2, '333', 12, '2023-01-01 23:45:57', 33, 3333, 0, NULL, '2023-01-03 23:45:57', '2023-01-01 23:45:57');
+INSERT INTO `bidding` (`product_id`, `product_name`, `product_num`, `product_img`, `product_text`, `product_label`, `product_new_rate`, `product_info`, `seller_id`, `product_postdate`, `raise`, `price`, `state`, `user_id`, `bid_length`, `start_bidding`) VALUES
+(1, 'xx', 2, '', 'ss', 'Book', 2, '22', 12, '2023-01-04 18:48:49', 22, 222, 0, NULL, '2023-01-25 18:48:49', '2023-01-04 18:48:49'),
+(4, '手機', 1, 'https://i.imgur.com/OS3lebp.png', '手機', '3C', 2, '手機', 8, '2022-12-15 00:12:38', 10, 220, 0, 11, '2022-12-15 17:34:00', '2022-12-15 17:24:00');
 
 --
 -- 觸發器 `bidding`
@@ -126,8 +126,7 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`product_id`, `product_name`, `product_num`, `product_img`, `product_text`, `product_label`, `product_new_rate`, `product_info`, `product_cost`, `seller_id`, `product_postdate`) VALUES
 (1, '微積分', 10, 'https://i.imgur.com/OS3lebp.png', '牛逼了我的天', 'BOOK', 4, '一杓三花淡奶，全是科技與很活', 200, 1, '2022-11-20 02:01:39'),
 (3, 'NIKE T恤', 1, 'https://i.imgur.com/OS3lebp.png', '就是T恤', 'CLOTHES', 3, 'TTT', 300, 8, '2022-12-03 10:31:52'),
-(7, '數學課本', 2, '', '2', 'Book', 2, '22', 222, 12, '2023-01-02 00:04:15'),
-(8, '', 0, '', '', '', 0, '', 0, 13, '2023-01-02 01:06:04');
+(4, '手機', 1, 'https://i.imgur.com/OS3lebp.png', '手機', '3C', 2, '手機', 100, 8, '2022-12-03 10:34:05');
 
 -- --------------------------------------------------------
 
@@ -204,7 +203,7 @@ INSERT INTO `user` (`user_id`, `user_name`, `user_pwd_hash`, `user_email`, `real
 (9, 'user6', '$2y$10$YEiEGH0Fjs4zqmCMhRKN9uKQIBgwkbBG4lOuBlUeH0IZcEXw8luBS', 'user6@gmail.com', '', '', '0'),
 (10, 'ss', '$2y$10$hv7FuQyeP1owfasontw35uGNAS6zCuz9thQ0Dn6aPG3DYGTyY7SRG', 'ss', '', '', '0'),
 (11, 'user123', '$2y$10$4olrBWXQWmH8hbEsPe9vGeCiFd21n/usWGvtNf/0tVpcowfPb7Ki.', '123', '', '', '0'),
-(12, 'lin', '$2y$10$lyzwNpo3cIi0YN.9mtEcQuvsvmf2IppYkTmHQ7pOEzpHkur9owrOK', 'chengenl20@gmail.com', '林呈恩', '0955104355', 'OK');
+(12, 'lin', '$2y$10$X7ouXBpYtzjrHd0F9OeBHeOss6LteOD9tNcdsTQorTkVIGUmoSZ6i', 'chengenl20@gmail.com', 'lin', '0', 'OK');
 
 --
 -- 已傾印資料表的索引
@@ -255,7 +254,7 @@ ALTER TABLE `user`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `bidding`
 --
 ALTER TABLE `bidding`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `chat`
@@ -267,7 +266,7 @@ ALTER TABLE `chat`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `purchase`
@@ -290,15 +289,15 @@ CREATE DEFINER=`root`@`localhost` EVENT `check_bidding` ON SCHEDULE EVERY 1 SECO
         (user_id, product_id)
         select user_id, product_id
         FROM `bidding`
-        where product_state = '1' AND TIMEDIFF(NOW(), bid_length) >= TIME_FORMAT('00:00:00', '%H:%i:%s');
+        where state = '1' AND TIMEDIFF(NOW(), bid_length) >= TIME_FORMAT('00:00:00', '%H:%i:%s');
 
         UPDATE `purchase` 
         SET purchase_num = '1', purchase_state = 'inCart' 
         WHERE purchase_num = 0 AND purchase_state = '';
 
         UPDATE `bidding` 
-        SET product_state = 0 
-        WHERE product_state = 1 AND TIMEDIFF(NOW(), bid_length) >= TIME_FORMAT('00:00:00', '%H:%i:%s');
+        SET state = 0 
+        WHERE state = 1 AND TIMEDIFF(NOW(), bid_length) >= TIME_FORMAT('00:00:00', '%H:%i:%s');
 END$$
 
 DELIMITER ;
