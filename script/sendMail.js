@@ -71,3 +71,18 @@ function sendAuthMail(userId, func) {
         }
     })
 }
+function sendinformMail(userId,func) {
+    $.ajax({
+        url: "php/sendsellermail.php",
+        type: "POST",
+        data: { userId: userId },
+        success: function(res) {
+            data = JSON.parse(res);
+            console.log(data);
+            if (data.state == 200) {
+                console.log(data.email);
+                sendMail(data.email, data.subject, data.body,func);
+            }
+        }
+    })
+}
