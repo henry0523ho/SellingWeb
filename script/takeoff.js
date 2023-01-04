@@ -1,11 +1,10 @@
 $(document).ready(function() {
     grabProductName();
     $("#update").click(function() {
-        del();
+        delProduct();
     })
 })
-
-function del(){
+function delProduct(){
     $.ajax({
         url: 'php/delProduct.php',
         type: "POST",
