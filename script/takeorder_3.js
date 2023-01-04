@@ -67,16 +67,16 @@ function sendInfoMail(reslut){
     console.log(reslut.data)
     for(let i=0;i<reslut.data.length;i++){       
         console.log(reslut.data[i].seller_id)
-        sendinformMail(reslut.data[i].seller_id, func)    
+        sendinformMail(reslut.data[i].seller_id,func)    
     }
 }
 
 
-function sendinformMail(seller_id, func) {
+function sendinformMail(userId,func) {
     $.ajax({
         url: "php/sendmail.php",
         type: "POST",
-        data: { seller_id: seller_id },
+        data: { userId: userId },
         success: function(res) {
             data = JSON.parse(res);
             if (data.state == 200) {
