@@ -43,7 +43,7 @@ function changeState(state, id){
 }
 function setClick(nowState, state, id){
     if(state == '已出貨'){
-        if(nowState == "Buying"){
+        if(nowState == "未出貨"){
             changeState(state, id);
         } 
     } 
@@ -81,7 +81,7 @@ function show(who, result){
                     .attr("class", "state")
                     .attr("type", "text")
                     .attr("disabled", true)
-                    .val(result.data[i].purchase_state=="Buying"?"未出貨":result.data[i].purchase_state)
+                    .val(result.data[i].purchase_state)
                 )
             )
             .append(
