@@ -11,34 +11,34 @@ CSS
 Html
 
 # 資料夾說明
-css - 頁面模版
-font - 頁面字型
-images - 頁面背景等圖片
-js - 頁面套件
-php - 網頁後端程式
-script - 部分頁面腳本功能
-sql - 過去版本的sql
-upload - 儲存上傳的照片
+1. css - 頁面模版
+2. font - 頁面字型
+3. images - 頁面背景等圖片
+4. js - 頁面套件
+5. php - 網頁後端程式
+6. script - 部分頁面腳本功能
+7. sql - 過去版本的sql
+8. upload - 儲存上傳的照片
  
 # 最後大致分工
-共同完成：需求文件、設計文件 
+1. 共同完成：需求文件、設計文件 
 
-何浩宇：
+2. 何浩宇：
 登入註冊串接與後端、聊天室串接與後端、前端圖片上傳 imgur上傳照片API串接、前後端寄信功能、驗證使用者信箱、新增/修改/刪除/顯示商品API、驗證信功能、伺服器部屬、修所有bug、技術指導
 
-邱語芊：
+3. 邱語芊：
 載入資料庫商品頁面、商品顯示順序排序、載入商品細節至頁面、出貨進度後端、商品介面-定價競標前端Nav bar、首頁、個人資料、購物車、下訂單(4步驟)介面、驗證信功能、聊天室前端、曾經瀏覽、前端bug、其他測試文件資料
 
-羅少謙：
+4. 羅少謙：
 登入註冊前端、上架商品到資料庫前端、競標功能後端跟串接、訂單及出貨查詢前端 添加/刪除商品介面、競標後加入購物車、競標底價不二價功能、系統測試
 
-林呈恩：
+5. 林呈恩：
 過濾搜尋、下架商品、上架商品到資料庫、單元測試
 
-陳貫唯：
+6. 陳貫唯：
 存取購物車後端與串接、下單功能後端與串接、上架商品到資料庫、及時通知功能(例如傳出貨通知信)、訂單狀態修改、JMeter測試
 
-楊捷堯：
+7. 楊捷堯：
 下訂單(4步驟)介面、及時通知功能(例如傳出貨通知信)、其他測試文件資料
 
 # 提升流程品質或系統品質的措施(如Jenkins、GitHub Actions、JWT等)
@@ -49,7 +49,7 @@ upload - 儲存上傳的照片
 1. 使用者介面支援RWD顯示。
 
 # 相關連結：
-Trello：http://tiny.cc/GroupTwo
-GitHub： https://github.com/henry0523ho/SellingWeb.git
-Demo：http://tiny.cc/groupTwoDemo
-專案網址：https://sellingwebchen3ho5yang12.000webhostapp.com/
+1. Trello：http://tiny.cc/GroupTwo
+2. GitHub： https://github.com/henry0523ho/SellingWeb.git
+3. Demo：http://tiny.cc/groupTwoDemo
+4. 專案網址：https://sellingwebchen3ho5yang12.000webhostapp.com/
